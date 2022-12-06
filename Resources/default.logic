@@ -95,10 +95,15 @@
 !color - Gimmick - HEART_COLOR - Change Heart Color -    0xFF - 0x50 - 0x10
 !color - Gimmick - SPLIT_COLOR - Change Split Bar Color -    0x4A - 0xFF - 0x18     -    0x31 - 0x9C - 0x18    -   0x31 - 0x52 - 0x18
 !dropdown - Gimmick - FOLLOWER_SETTING - No Follower - NOFOLLOWER - Mailman Follower - 0x04 - Zelda Follower - 0x05 - Malon Follower - 0x1E - Smith Follower - 0x22 - King Gustaf Follower - 0x24 - Cow Follower - 0x31 - Goron Follower - 0x32 - Anju Follower - 0x45
+!flag - Gimmick - ITEM_HISTORY - Show recently collected Keys/Scrolls/Kinstones - true
 
 !eventdefine - customRNG - 0x`RAND_INT`
 
 #Gimmicks
+
+!ifdef - ITEM_HISTORY
+    !eventdefine - historyOption - 0x180
+!endif
 
 !define - `FOLLOWER_SETTING`
 !ifndef - NOFOLLOWER
