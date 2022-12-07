@@ -93,7 +93,7 @@ BYTE 0x40
 
 fusionNumber:
 #ifdef noFusions
-	BYTE 6
+	BYTE 5
 	#else
 	BYTE 0
 #endif
