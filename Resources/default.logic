@@ -1313,11 +1313,11 @@ PalacePrize:`ELEMENT_DUNGEON`;     `ELEMENT`;         0x0E69E3;                 
 	CrenelLowerLeftFusion;   Minor; 0x0FE116;                                                                   Locations.AccessLowerCrenel;
 	PreMelariFusion;         Minor; 0x0FE096;                                                                   Locations.CrenelBlockChest, Locations.AccessHyliaNorth;
 
-	CastorTopRightCrack;     Minor; 0x27-0x09-0x00;                                                                 Locations.AccessWilds, (|Locations.AccessMinishWoods, (&Helpers.HasBottle, (|Items.Flippers, Items.RocsCape, Items.PacciCane)));
-	CastorTopLeftCrack;      Minor; 0x27-0x0D-0x00;                                                                 Locations.AccessWilds, (|Items.GustJar, Items.Flippers), Locations.AccessMinishWoods;
-	CastorMiddleLeftCrack;   Minor; 0x27-0x0A-0x00;                                                                 Locations.AccessWilds, (|Locations.AccessMinishWoods, (&Helpers.HasBottle, (|Items.Flippers, Items.RocsCape, Items.PacciCane)));
-	CastorLongJourneyCrack;  Minor; 0x27-0x0B-0x00;                                                                 Locations.AccessWilds, (|Locations.AccessMinishWoods, (&Helpers.HasBottle, (|Items.Flippers, Items.RocsCape, Items.PacciCane)));
-	CastorMinishWaterCaveChest; Minor; 0x35-0x01-0x00;                                                              Locations.AccessWilds, Items.Flippers, (|Locations.AccessMinishWoods, (&Helpers.HasBottle, (|Items.Flippers, Items.RocsCape, Items.PacciCane)));
+	WildsTopRightCrack;     Minor; 0x27-0x09-0x00;                                                                 Locations.AccessWilds, (|Locations.AccessMinishWoods, (&Helpers.HasBottle, (|Items.Flippers, Items.RocsCape, Items.PacciCane)));
+	WildsTopLeftCrack;      Minor; 0x27-0x0D-0x00;                                                                 Locations.AccessWilds, (|Items.GustJar, Items.Flippers), Locations.AccessMinishWoods;
+	WildsMiddleLeftCrack;   Minor; 0x27-0x0A-0x00;                                                                 Locations.AccessWilds, (|Locations.AccessMinishWoods, (&Helpers.HasBottle, (|Items.Flippers, Items.RocsCape, Items.PacciCane)));
+	WildsLongJourneyCrack;  Minor; 0x27-0x0B-0x00;                                                                 Locations.AccessWilds, (|Locations.AccessMinishWoods, (&Helpers.HasBottle, (|Items.Flippers, Items.RocsCape, Items.PacciCane)));
+	WildsMinishWaterCaveChest; Minor; 0x35-0x01-0x00;                                                              Locations.AccessWilds, Items.Flippers, (|Locations.AccessMinishWoods, (&Helpers.HasBottle, (|Items.Flippers, Items.RocsCape, Items.PacciCane)));
 
 	RuinsPillarsFusion;      Minor; 0x0FE11E;                                                                   Locations.AccessFortress, Items.PegasusBoots;
 	RuinsCrackFusion;        Minor; 0x27-0x0C-0x00;                                                                 Locations.AccessFortress, Locations.AccessValley;
@@ -1339,7 +1339,7 @@ PalacePrize:`ELEMENT_DUNGEON`;     `ELEMENT`;         0x0E69E3;                 
     	BelariRemote;            Major; 0x00A0A0;                                                                   Locations.BelariBombs;
 											                                                                  
 	RuinsArrowButterfly;     Major; 0x0FE12F;                                                                   Locations.AccessFortress
-    	CastorDigButterfly;      Major; 0x0FE13F;                                                                   Locations.AccessWilds;
+    	WildsDigButterfly;      Major; 0x0FE13F;                                                                   Locations.AccessWilds;
     	ValleySwimButterfly;     Major; 0x0FE14F;                                                                   Locations.AccessValley, Items.GraveyardKey, Items.PegasusBoots;
     					     				                                                                  
     	CrenelBeanstalkHP;       Major; 0x0F5D9B;                                                                   Locations.CompleteCoF, Locations.AccessCrenel, Items.GripRing;
@@ -1358,7 +1358,7 @@ PalacePrize:`ELEMENT_DUNGEON`;     `ELEMENT`;         0x0E69E3;                 
     	LinkHouseTreeHP;         Major; 0x0F9BA7;                                                                   Helpers.CanDestroyTrees;
     	FallsWaterDigCaveHP;     Major; 0x0F3DD7;                                                                   Locations.AccessMinishWoods, Items.BombBag, Items.Flippers, Items.MoleMitts;
     	FallsWaterfallHP;        Major; 0x0F906F;                                                                   Locations.AccessFallsNorth, Items.Flippers, Items.GripRing;
-    	CastorMinishWaterCaveHP; Major; 0x0DB3F7;                                                                   Locations.AccessWilds, Items.Flippers, (|Locations.AccessMinishWoods, (&Helpers.HasBottle, (|Items.Flippers, Items.RocsCape, Items.PacciCane)));
+    	WildsMinishWaterCaveHP; Major; 0x0DB3F7;                                                                   Locations.AccessWilds, Items.Flippers, (|Locations.AccessMinishWoods, (&Helpers.HasBottle, (|Items.Flippers, Items.RocsCape, Items.PacciCane)));
     	CastleDrainedFountainHP; Major; 0x0D9C2B;                                                                   ;
     	LibrariCabinContainer;   Major; 0x0124EC;                                                                   Items.Ocarina, Items.Flippers;
     
