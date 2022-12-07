@@ -826,7 +826,7 @@ CloudsSouthRight;  Minor; 0x08-0x01-0x06; Locations.AccessClouds, (|Items.RocsCa
 
 AccessUpperClouds; Helper;;               Locations.AccessClouds, (|Items.RocsCape, Items.MoleMitts), Items.KinstoneX.YellowTornadoProng::5
 
-!ifndef - OPENFUSIONS
+!ifdef - NO_FUSIONS
     TowerBottomLeft;   Minor; 0x30-0x00-0x00; Locations.AccessUpperClouds;
     TowerBottomRight;  Minor; 0x30-0x00-0x01; Locations.AccessUpperClouds;
     TowerF2;           Minor; 0x30-0x01-0x00; Locations.AccessUpperClouds;
@@ -836,7 +836,7 @@ AccessUpperClouds; Helper;;               Locations.AccessClouds, (|Items.RocsCa
     TowerBottomLeft;   Minor; 0x30-0x00-0x00; ;
     TowerBottomRight;  Minor; 0x30-0x00-0x01; ;
     TowerF2;           Minor; 0x30-0x01-0x00; ;
-    GregalOne;         Minor; 0x014C5C;   Items.GustJar
+    GregalOne;         Minor; 0x014C5C;       Items.GustJar
 !endif
 
 GregalTwo;         Major; 0x014CBC;       Locations.AccessUpperClouds, Items.GustJar;            Items.Bow
