@@ -31,6 +31,12 @@ bx	r3
 @get the new icon to use
 isBottle:
 ldrb	r0,[r4,#0x0B]
+cmp	r0,#0
+bne	bottleWithSub
+@if no sub id set, treat as empty
+mov	r0,#0x20
+
+bottleWithSub:
 b	end
 
 .align

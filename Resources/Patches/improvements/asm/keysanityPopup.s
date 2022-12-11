@@ -31,6 +31,12 @@ cmp	r6, #0x1F
 bhi	notBottle
 
 @it's a bottle: we get funky
+cmp	r7,#0
+bne	bottleWithSub
+@if no sub id set, treat as empty
+mov	r7,#0x20
+
+bottleWithSub:
 ldr	r0, =#0x30011E8
 @change the icon we will get
 strb	r7, [r0, #0x0A]
