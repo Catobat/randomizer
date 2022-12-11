@@ -1,5 +1,12 @@
 .thumb
 @if using the lantern, mark it so already so the combo fix works with either order of items
+ldr	r0,=#0x300116C
+ldrb	r1,[r0,#3]
+cmp	r1,#6
+bcs	notLantern
+ldrb	r1,[r0]
+cmp	r1,#1
+bne	notLantern
 cmp	r4,#0x0F
 bne	notLantern
 ldr	r0,=#0x3000BE3
