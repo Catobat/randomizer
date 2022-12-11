@@ -70,6 +70,7 @@
 !flag - Setting - WHYWOULDYOUDOTHISTOYOURSELF - Obscure spots
 !flag - Setting - RUPEEMANIA - Add available rupees to pool
 !flag - Setting - GOLDEN_ENEMY - Golden enemy drops
+!flag - Setting - RANDOM_BOTTLE_CONTENT - Random bottle content
 !flag - Setting - WEAPONS - Damaging items other than sword seen as weapons
 !flag - Setting - TRAPS - Shuffle traps in itempool
 !flag - Setting - TIMEDOHKO - Die in one hit if the timer runs out
@@ -339,6 +340,10 @@
 !endif
 !undefine - `ITEM_POOL`
 
+!ifdef - RANDOM_BOTTLE_CONTENT
+    !replace - Items.Bottle4 - Items.Bottle4.0x20::1, Items.Bottle4.0x21::1, Items.Bottle4.0x22::1, Items.Bottle4.0x23::1, Items.Bottle4.0x24::1, Items.Bottle4.0x25::1, Items.Bottle4.0x26::1, Items.Bottle4.0x27::1, Items.Bottle4.0x28::1, Items.Bottle4.0x29::1, Items.Bottle4.0x2A::1, Items.Bottle4.0x2B::1, Items.Bottle4.0x2C::1, Items.Bottle4.0x2D::1, Items.Bottle4.0x2E::1, Items.Bottle4.0x2F::1, Items.Bottle4.0x30::1, Items.Bottle4.0x31::1
+!endif
+
 !replace - Items.ShellsX - `SWAPSHELL`
 !replace - Items.ShellsX.1 - `SWAPSHELL`
 !replace - Items.ShellsX.10 - `SWAPSHELL`
@@ -597,7 +602,7 @@ CanSplit2;       Helper;; (|Items.SmithSword::3, Items.RedSword, Items.BlueSword
 CanSplit3;       Helper;; (|Items.SmithSword::4, Items.BlueSword, Items.FourSword), Helpers.HasSpin
 CanSplit4;       Helper;; (|Items.SmithSword::5, Items.FourSword), Helpers.HasSpin
 
-HasBottle;       Helper;; (|Items.Bottle1, Items.Bottle2, Items.Bottle3, Items.Bottle4)
+HasBottle;       Helper;; (|Items.Bottle1, Items.Bottle2, Items.Bottle3, Items.Bottle4, Items.Bottle4.0x20, Items.Bottle4.0x21, Items.Bottle4.0x22, Items.Bottle4.0x23, Items.Bottle4.0x24, Items.Bottle4.0x25, Items.Bottle4.0x26, Items.Bottle4.0x27, Items.Bottle4.0x28, Items.Bottle4.0x29, Items.Bottle4.0x2A, Items.Bottle4.0x2B, Items.Bottle4.0x2C, Items.Bottle4.0x2D, Items.Bottle4.0x2E, Items.Bottle4.0x2F, Items.Bottle4.0x30, Items.Bottle4.0x31)
 
 HasBow;          Helper;; (|Items.Bow, Items.LightArrow)
 HasLightBow;     Helper;; (|Items.Bow::2, Items.LightArrow)
