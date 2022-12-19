@@ -1279,10 +1279,10 @@ PalacePrize:`ELEMENT_DUNGEON`;     `ELEMENT`;         0x0E69E3;                 
 	SchoolMinishPathFusion;  Minor; 0x0FE076;                                                                   Items.PacciCane;
 	TownWaterfallChest;      Minor; 0x32-0x0B-0x00;                                                                 Locations.AccessValley, Items.GraveyardKey, Items.PegasusBoots, Items.Flippers;
 	TingleTreeTopLeft;       Minor; 0x32-0x00-0x00;                                                                 Helpers.CanDestroyTrees, Items.PacciCane;
-	TingleTreeTopRight;      Minor; 0x32-0x00-0x01;                                                                 Locations.AccessHyliaNorth, Helpers.CanSplit2;
-	TingleTreeBottomLeft;    Minor; 0x32-0x00-0x02;                                                                 Locations.AccessWestField, Items.MoleMitts;
-	TingleTreeBottomRight;   Minor; 0x32-0x00-0x03;                                                                 Locations.AccessHyliaNorth;
-    	CastleRightMinishHole;   Minor; 0x36-0x00-0x00;                                                                 Items.PegasusBoots;                                                                 
+	TingleTreeTopRight;      Minor; 0x32-0x00-0x01;                                                                 Helpers.CanDestroyTrees, Items.PacciCane, Locations.AccessHyliaNorth, Helpers.CanSplit2;
+	TingleTreeBottomLeft;    Minor; 0x32-0x00-0x02;                                                                 Helpers.CanDestroyTrees, Items.PacciCane, Locations.AccessWestField, Items.MoleMitts;
+	TingleTreeBottomRight;   Minor; 0x32-0x00-0x03;                                                                 Helpers.CanDestroyTrees, Items.PacciCane, Locations.AccessHyliaNorth;
+    CastleRightMinishHole;   Minor; 0x36-0x00-0x00;                                                                 Items.PegasusBoots;                                                                 
 	CastleLeftMinishHole;    Minor; 0x36-0x01-0x00;                                                                 Items.PegasusBoots;
 
 	LinkHouseFusion;         Minor; 0x0FE0D6;                                                                   Helpers.CanDestroyTrees;
@@ -1317,7 +1317,7 @@ PalacePrize:`ELEMENT_DUNGEON`;     `ELEMENT`;         0x0E69E3;                 
 	CrenelClimbFusion;       Minor; 0x0FE10E;                                                                   Locations.AccessEastField, Locations.AccessCrenel, Items.GripRing;
 	CrenelRainPath;          Minor; 0x0FE066;                                                                   Locations.AccessCrenel, Items.GripRing, (|Items.PacciCane, (&Items.GripRing, (|Items.RocsCape, Helpers.HasLightBow,(&Items.GustJar, (|Items.BombBag, Helpers.HasBow, Helpers.HasBoomerang)))));
 	CrenelLowerLeftFusion;   Minor; 0x0FE116;                                                                   Locations.AccessLowerCrenel;
-	PreMelariFusion;         Minor; 0x0FE096;                                                                   Locations.CrenelBlockChest, Locations.AccessHyliaNorth;
+	PreMelariFusion;         Minor; 0x0FE096;                                                                   Locations.CrenelBlockChest, Helpers.CanDestroyTrees, Items.PacciCane, Locations.AccessHyliaNorth;
 
 	WildsTopRightCrack;     Minor; 0x27-0x09-0x00;                                                                 Locations.AccessWilds, (|Locations.AccessMinishWoods, (&Helpers.HasBottle, (|Items.Flippers, Items.RocsCape, Items.PacciCane)));
 	WildsTopLeftCrack;      Minor; 0x27-0x0D-0x00;                                                                 Locations.AccessWilds, (|Items.GustJar, Items.Flippers), Locations.AccessMinishWoods;
