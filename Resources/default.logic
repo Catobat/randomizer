@@ -1317,7 +1317,7 @@ PalacePrize:`ELEMENT_DUNGEON`;     `ELEMENT`;         0x0E69E3;                 
 	CrenelClimbFusion;       Minor; 0x0FE10E;                                                                   Locations.AccessEastField, Locations.AccessCrenel, Items.GripRing;
 	CrenelRainPath;          Minor; 0x0FE066;                                                                   Locations.AccessCrenel, Items.GripRing, (|Items.PacciCane, (&Items.GripRing, (|Items.RocsCape, Helpers.HasLightBow,(&Items.GustJar, (|Items.BombBag, Helpers.HasBow, Helpers.HasBoomerang)))));
 	CrenelLowerLeftFusion;   Minor; 0x0FE116;                                                                   Locations.AccessLowerCrenel;
-	PreMelariFusion;         Minor; 0x0FE096;                                                                   Locations.CrenelBlockChest, Helpers.CanDestroyTrees, Items.PacciCane, Locations.AccessHyliaNorth;
+	PreMelariFusion;         Minor; 0x0FE096;                                                                   Locations.CrenelBlockChest, Helpers.HasMagicBoomerang, Helpers.CanDestroyTrees, Items.PacciCane, Locations.AccessHyliaNorth;
 
 	WildsTopRightCrack;     Minor; 0x27-0x09-0x00;                                                                 Locations.AccessWilds, (|Locations.AccessMinishWoods, (&Helpers.HasBottle, (|Items.Flippers, Items.RocsCape, Items.PacciCane)));
 	WildsTopLeftCrack;      Minor; 0x27-0x0D-0x00;                                                                 Locations.AccessWilds, (|Items.GustJar, Items.Flippers), Locations.AccessMinishWoods;
@@ -1661,7 +1661,7 @@ PalacePrize:`ELEMENT_DUNGEON`;     `ELEMENT`;         0x0E69E3;                 
 		EastGoldenRope;            Minor; golden4Item:Define:FirstByte, golden4Sub:Define:SecondByte; Helpers.CanDestroyTrees, Helpers.HasSword; Items.Rupee100
 		PreCastleGoldenRope;       Minor; golden5Item:Define:FirstByte, golden5Sub:Define:SecondByte; Helpers.HasSword; Items.Rupee100
 		FallsGoldenTektite;        Minor; golden6Item:Define:FirstByte, golden6Sub:Define:SecondByte; Locations.AccessUpperClouds, Helpers.HasSword; Items.Rupee100
-		CrenelGoldenTektiteMiddle; Minor; golden7Item:Define:FirstByte, golden7Sub:Define:SecondByte; Items.PacciCane, Locations.AccessCrenel, Helpers.HasSword; Items.Rupee100
+		CrenelGoldenTektiteMiddle; Minor; golden7Item:Define:FirstByte, golden7Sub:Define:SecondByte; Helpers.HasMagicBoomerang, Items.PacciCane, Locations.AccessCrenel, Helpers.HasSword; Items.Rupee100
 		MinishGoldenOcto;          Minor; golden8Item:Define:FirstByte, golden8Sub:Define:SecondByte; Locations.AccessMinishWoods, (|Items.Flippers, Items.RocsCape,(&Items.PacciCane,(|Items.Ocarina, Items.LonLonKey))), Helpers.HasSword; Items.Rupee100
 		WesternWoodGoldenOcto;     Minor; golden9Item:Define:FirstByte, golden9Sub:Define:SecondByte; Locations.AccessWilds, Locations.AccessMinishWoods, Helpers.HasSword; Items.Rupee100
 	!endif
