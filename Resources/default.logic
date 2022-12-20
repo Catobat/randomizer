@@ -1366,7 +1366,7 @@ PalacePrize:`ELEMENT_DUNGEON`;     `ELEMENT`;         0x0E69E3;                 
 	PreMelariFusion;         Minor; 0x0FE096;                                                                   Helpers.CanFuseGreenSplit, Helpers.CanFuseGreenSquare, Locations.CrenelBlockChest, Helpers.HasMagicBoomerang, Helpers.CanDestroyTrees, Items.PacciCane, Locations.AccessHyliaNorth;
 
 	WildsTopRightCrack;        Minor; 0x27-0x09-0x00;                                                           Helpers.CanFuseGreenSquare, Locations.AccessWilds, (|Locations.AccessMinishWoods, (&Helpers.HasBottle, (|Items.Flippers, Items.RocsCape, Items.PacciCane)));
-	WildsTopLeftCrack;         Minor; 0x27-0x0D-0x00;                                                           Helpers.CanFuseBlueL, Helpers.CanFuseGreenSpike, Helpers.CanFuseGreenSplit, Locations.AccessWilds, (|Items.GustJar, Items.Flippers), Locations.AccessMinishWoods;
+	WildsTopLeftCrack;         Minor; 0x27-0x0D-0x00;                                                           Helpers.CanFuseBlueL, Helpers.CanFuseGreenSpike, Helpers.CanFuseGreenSplit, Locations.AccessWilds, (|Items.GustJar, Items.Flippers), Locations.AccessMinishWoods, Items.Shield;
 	WildsMiddleLeftCrack;      Minor; 0x27-0x0A-0x00;                                                           Helpers.CanFuseGreenSquare, Helpers.CanFuseGreenSplit, Locations.AccessWilds, (|Locations.AccessMinishWoods, (&Helpers.HasBottle, (|Items.Flippers, Items.RocsCape, Items.PacciCane)));
 	WildsLongJourneyCrack;     Minor; 0x27-0x0B-0x00;                                                           Helpers.CanFuseGreenSquare, Helpers.CanFuseGreenSplit, Helpers.CanFuseGreenSpike, Locations.AccessWilds, (|Locations.AccessMinishWoods, (&Helpers.HasBottle, (|Items.Flippers, Items.RocsCape, Items.PacciCane)));
 	WildsMinishWaterCaveChest; Minor; 0x35-0x01-0x00;                                                           Helpers.CanFuseGreenSquare, Helpers.CanFuseGreenSplit, Locations.AccessWilds, Items.Flippers, (|Locations.AccessMinishWoods, (&Helpers.HasBottle, (|Items.Flippers, Items.RocsCape, Items.PacciCane)));
@@ -1709,7 +1709,7 @@ PalacePrize:`ELEMENT_DUNGEON`;     `ELEMENT`;         0x0E69E3;                 
 		FallsGoldenTektite;        Minor; golden6Item:Define:FirstByte, golden6Sub:Define:SecondByte; Helpers.CanFuseGreenSquare, Locations.AccessFallsNorth, Items.GripRing, Helpers.HasSword; Items.Rupee100
 		CrenelGoldenTektiteMiddle; Minor; golden7Item:Define:FirstByte, golden7Sub:Define:SecondByte; Helpers.CanFuseGreenSplit, Helpers.CanFuseRedCrack, Helpers.HasMagicBoomerang, Items.PacciCane, Locations.AccessCrenel, Helpers.HasSword; Items.Rupee100
 		MinishGoldenOcto;          Minor; golden8Item:Define:FirstByte, golden8Sub:Define:SecondByte; Helpers.CanFuseShared, Locations.AccessMinishWoods, (|Items.Flippers, Items.RocsCape,(&Items.PacciCane,(|Items.Ocarina, Items.LonLonKey))), Helpers.HasSword; Items.Rupee100
-		WesternWoodGoldenOcto;     Minor; golden9Item:Define:FirstByte, golden9Sub:Define:SecondByte; Helpers.CanFuseBlueL, Helpers.CanFuseGreenSpike, Locations.AccessWilds, Locations.AccessMinishWoods, Helpers.HasSword; Items.Rupee100
+		WesternWoodGoldenOcto;     Minor; golden9Item:Define:FirstByte, golden9Sub:Define:SecondByte; Helpers.CanFuseBlueL, Helpers.CanFuseGreenSpike, Locations.AccessWilds, Locations.AccessMinishWoods, Items.Shield, Helpers.HasSword; Items.Rupee100
 	!endif
 !endif
 
