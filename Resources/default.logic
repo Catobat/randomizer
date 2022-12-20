@@ -877,12 +877,18 @@ AccessUpperClouds; Helper;;               Locations.AccessClouds, (|Items.RocsCa
     TowerBottomRight;  Minor; 0x30-0x00-0x01; Locations.AccessUpperClouds;
     TowerF2;           Minor; 0x30-0x01-0x00; Locations.AccessUpperClouds;
     GregalOne;         Minor; 0x014C5C;       Locations.AccessUpperClouds, Items.GustJar
-    
-!else
+!endif
+!ifdef - OPENFUSIONS
     TowerBottomLeft;   Minor; 0x30-0x00-0x00; ;
     TowerBottomRight;  Minor; 0x30-0x00-0x01; ;
     TowerF2;           Minor; 0x30-0x01-0x00; ;
     GregalOne;         Minor; 0x014C5C;       Items.GustJar
+!endif
+!ifdef - VANILLA_FUSIONS
+    TowerBottomLeft;   Minor; 0x30-0x00-0x00; (|Helpers.CanFuseRedCrack, Locations.AccessUpperClouds);
+    TowerBottomRight;  Minor; 0x30-0x00-0x01; (|Helpers.CanFuseRedCrack, Locations.AccessUpperClouds);
+    TowerF2;           Minor; 0x30-0x01-0x00; (|Helpers.CanFuseRedCrack, Locations.AccessUpperClouds);
+    GregalOne;         Minor; 0x014C5C;       (|Helpers.CanFuseRedCrack, Locations.AccessUpperClouds), Items.GustJar
 !endif
 
 GregalTwo;         Major; 0x014CBC;       Locations.AccessUpperClouds, Items.GustJar;            Items.Bow
