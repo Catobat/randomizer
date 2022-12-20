@@ -1314,7 +1314,7 @@ PalacePrize:`ELEMENT_DUNGEON`;     `ELEMENT`;         0x0E69E3;                 
 	MinishMinishPathFusion;  Minor; 0x0FE08E;                                                                   Helpers.CanFuseShared, Locations.AccessMinishWoods;
 	MinishCrackChest;        Minor; 0x27-0x08-0x00;                                                             Helpers.CanFuseShared, Locations.AccessMinishWoods;
 
-	HyliaMinishPathFusion;   Minor; 0x0FE09E;                                                                   Helpers.CanFuseGreenSplit, Locations.AccessHyliaSouth, Items.PegasusBoots, (|Items.GustJar, Items.Flippers);
+	HyliaMinishPathFusion;   Minor; 0x0FE09E;                                                                   Helpers.CanFuseGreenSplit, Locations.AccessHyliaSouth, Items.PegasusBoots, (|Items.GustJar, Items.Flippers), Items.PacciCane;
 
 	SchoolMinishPathFusion;  Minor; 0x0FE076;                                                                   Helpers.CanFuseShared, Items.PacciCane;
 	TownWaterfallChest;      Minor; 0x32-0x0B-0x00;                                                             Helpers.CanFuseBlueS, Helpers.CanFuseGreenSpike, Locations.AccessValley, Items.GraveyardKey, Items.PegasusBoots, Items.Flippers;
@@ -1329,11 +1329,11 @@ PalacePrize:`ELEMENT_DUNGEON`;     `ELEMENT`;         0x0E69E3;                 
 
 	LonLonFallsFusion;       Minor; 0x0FE0FE;                                                                   Helpers.CanFuseShared, Locations.AccessFallsSouth;
 	LonLonMinishPathFusion;  Minor; 0x0FE086;                                                                   Helpers.CanFuseShared, Locations.AccessHyliaNorth, Items.PegasusBoots;
-	GoronSmallChest;         Minor; 0x2F-0x01-0x00;                                                             Helpers.CanFuseBlueL, Helpers.CanFuseBlueS, Locations.AccessCrenel, Items.GripRing, Locations.AccessTreasureCave;
+	GoronSmallChest;         Minor; 0x2F-0x01-0x00;                                                             Helpers.CanFuseBlueL, Helpers.CanFuseBlueS, Items.MoleMitts, (|Locations.AccessWestField, Locations.AccessTreasureCave);
 
 	TrilbyTopFusion;         Minor; 0x0FE0BE;                                                                   Helpers.CanFuseRedSpike, Helpers.CanFuseGreenSplit, Locations.AccessWestField;
 	TrilbyMiddleFusion;      Minor; 0x0FE0EE;                                                                   Helpers.CanFuseGreenSplit, Locations.AccessWestField;
-	TrilbyWaterCave;         Minor; 0x13-0x03-0x01;                                                             Helpers.CanFuseBlueL, Locations.AccessWestField, (|Items.RocsCape,Items.Flippers), Items.MoleMitts;
+	TrilbyWaterCave;         Minor; 0x13-0x03-0x01;                                                             Helpers.CanFuseBlueL, Locations.AccessWestField, (|Items.RocsCape,Items.Flippers), Items.MoleMitts, Items.Ocarina;
 
 	WesternWoodChest;        Minor; 0x03-0x08-0x01;                                                             Helpers.CanFuseBlueS, Helpers.CanFuseGreenSpike, Locations.AccessValley, Items.GraveyardKey, Items.PegasusBoots;
 
@@ -1388,15 +1388,15 @@ PalacePrize:`ELEMENT_DUNGEON`;     `ELEMENT`;         0x0E69E3;                 
 	WildsDigButterfly;       Major; 0x0FE13F;                                                                   Helpers.CanFuseRedProng, Helpers.CanFuseRedCrack, Locations.AccessWilds;
 	ValleySwimButterfly;     Major; 0x0FE14F;                                                                   Helpers.CanFuseRedProng, Helpers.CanFuseRedSpike, Locations.AccessValley, Items.GraveyardKey, Items.PegasusBoots;
 
-	CrenelBeanstalkHP;       Major; 0x0F5D9B;                                                                   Helpers.CanFuseRedSpike, Locations.CompleteCoF, Locations.AccessCrenel, Items.GripRing;
+	CrenelBeanstalkHP;       Major; 0x0F5D9B;                                                                   Helpers.CanFuseRedSpike, Locations.CrenelBlockChest, Locations.AccessCrenel, Items.GripRing;
 
 	HyliaBeanstalkHP;        Major; 0x0F5EDB;                                                                   Helpers.CanFuseBlueL, Locations.AccessTreasureCave, Items.Flippers, Items.PegasusBoots;
 	HyliaBeanstalkLeft;      Minor; 0x0D-0x01-0x00;                                                             Helpers.CanFuseBlueL, Locations.AccessTreasureCave, Items.Flippers, Items.PegasusBoots;
 	HyliaBeanstalkRight;     Minor; 0x0D-0x01-0x01;                                                             Helpers.CanFuseBlueL, Locations.AccessTreasureCave, Items.Flippers, Items.PegasusBoots;
 
-	HillsBeanstalkHP;        Major; 0x0F6073;                                                                   Helpers.CanFuseBlueS, Helpers.CanDestroyTrees, (|Items.BombBag,(&Helpers.CanDestroyTrees, Items.GustJar));
-	HillsBeanstalkRight;     Minor; 0x0D-0x03-0x00;                                                             Helpers.CanFuseBlueS, Helpers.CanDestroyTrees, (|Items.BombBag,(&Helpers.CanDestroyTrees, Items.GustJar));
-	HillsBeanstalkLeft;      Minor; 0x0D-0x03-0x01;                                                             Helpers.CanFuseBlueS, Helpers.CanDestroyTrees, (|Items.BombBag,(&Helpers.CanDestroyTrees, Items.GustJar));
+	HillsBeanstalkHP;        Major; 0x0F6073;                                                                   Helpers.CanFuseBlueS, Helpers.CanDestroyTrees;
+	HillsBeanstalkRight;     Minor; 0x0D-0x03-0x00;                                                             Helpers.CanFuseBlueS, Helpers.CanDestroyTrees;
+	HillsBeanstalkLeft;      Minor; 0x0D-0x03-0x01;                                                             Helpers.CanFuseBlueS, Helpers.CanDestroyTrees;
 
 	WesternBeanstalk;        Minor; 0x0D-0x04-0x00;                                                             Helpers.CanFuseBlueL, Helpers.CanSplit2;
 
@@ -1622,14 +1622,14 @@ PalacePrize:`ELEMENT_DUNGEON`;     `ELEMENT`;         0x0E69E3;                 
         TrilbyPuddleCaveRupee15; Minor; 0x0F849B; Helpers.CanSplit2;
     !endif
     !ifdef - VANILLA_FUSIONS
-        CrenelBeanstalkRupee1; Minor; 0x0F5DAB; Helpers.CanFuseRedSpike, Locations.CompleteCoF, Locations.AccessCrenel, Items.GripRing;
-        CrenelBeanstalkRupee2; Minor; 0x0F5DBB; Helpers.CanFuseRedSpike, Locations.CompleteCoF, Locations.AccessCrenel, Items.GripRing;
-        CrenelBeanstalkRupee3; Minor; 0x0F5DCB; Helpers.CanFuseRedSpike, Locations.CompleteCoF, Locations.AccessCrenel, Items.GripRing;
-        CrenelBeanstalkRupee4; Minor; 0x0F5DDB; Helpers.CanFuseRedSpike, Locations.CompleteCoF, Locations.AccessCrenel, Items.GripRing;
-        CrenelBeanstalkRupee5; Minor; 0x0F5DEB; Helpers.CanFuseRedSpike, Locations.CompleteCoF, Locations.AccessCrenel, Items.GripRing;
-        CrenelBeanstalkRupee6; Minor; 0x0F5DFB; Helpers.CanFuseRedSpike, Locations.CompleteCoF, Locations.AccessCrenel, Items.GripRing;
-        CrenelBeanstalkRupee7; Minor; 0x0F5E0B; Helpers.CanFuseRedSpike, Locations.CompleteCoF, Locations.AccessCrenel, Items.GripRing;
-        CrenelBeanstalkRupee8; Minor; 0x0F5E1B; Helpers.CanFuseRedSpike, Locations.CompleteCoF, Locations.AccessCrenel, Items.GripRing;
+        CrenelBeanstalkRupee1; Minor; 0x0F5DAB; Helpers.CanFuseRedSpike, Locations.CrenelBlockChest, Locations.AccessCrenel, Items.GripRing;
+        CrenelBeanstalkRupee2; Minor; 0x0F5DBB; Helpers.CanFuseRedSpike, Locations.CrenelBlockChest, Locations.AccessCrenel, Items.GripRing;
+        CrenelBeanstalkRupee3; Minor; 0x0F5DCB; Helpers.CanFuseRedSpike, Locations.CrenelBlockChest, Locations.AccessCrenel, Items.GripRing;
+        CrenelBeanstalkRupee4; Minor; 0x0F5DDB; Helpers.CanFuseRedSpike, Locations.CrenelBlockChest, Locations.AccessCrenel, Items.GripRing;
+        CrenelBeanstalkRupee5; Minor; 0x0F5DEB; Helpers.CanFuseRedSpike, Locations.CrenelBlockChest, Locations.AccessCrenel, Items.GripRing;
+        CrenelBeanstalkRupee6; Minor; 0x0F5DFB; Helpers.CanFuseRedSpike, Locations.CrenelBlockChest, Locations.AccessCrenel, Items.GripRing;
+        CrenelBeanstalkRupee7; Minor; 0x0F5E0B; Helpers.CanFuseRedSpike, Locations.CrenelBlockChest, Locations.AccessCrenel, Items.GripRing;
+        CrenelBeanstalkRupee8; Minor; 0x0F5E1B; Helpers.CanFuseRedSpike, Locations.CrenelBlockChest, Locations.AccessCrenel, Items.GripRing;
 
         WesternWoodBeanstalkRupee1;  Minor; 0x0F6143; Helpers.CanFuseBlueL, Helpers.CanSplit2;
         WesternWoodBeanstalkRupee2;  Minor; 0x0F6153; Helpers.CanFuseBlueL, Helpers.CanSplit2;
@@ -1700,7 +1700,7 @@ PalacePrize:`ELEMENT_DUNGEON`;     `ELEMENT`;         0x0E69E3;                 
 		WildsGoldenRope;           Minor; golden3Item:Define:FirstByte, golden3Sub:Define:SecondByte; Helpers.CanFuseGreenSquare, (|Helpers.CanFuseRedCrack, Locations.AccessUpperClouds), Locations.AccessWilds, Helpers.HasSword; Items.Rupee100
 		EastGoldenRope;            Minor; golden4Item:Define:FirstByte, golden4Sub:Define:SecondByte; Helpers.CanFuseShared, Helpers.CanDestroyTrees, Helpers.HasSword; Items.Rupee100
 		PreCastleGoldenRope;       Minor; golden5Item:Define:FirstByte, golden5Sub:Define:SecondByte; Helpers.CanFuseShared, Helpers.HasSword; Items.Rupee100
-		FallsGoldenTektite;        Minor; golden6Item:Define:FirstByte, golden6Sub:Define:SecondByte; Helpers.CanFuseGreenSquare, Locations.AccessUpperClouds, Helpers.HasSword; Items.Rupee100
+		FallsGoldenTektite;        Minor; golden6Item:Define:FirstByte, golden6Sub:Define:SecondByte; Helpers.CanFuseGreenSquare, Locations.AccessFallsNorth, Items.GripRing, Helpers.HasSword; Items.Rupee100
 		CrenelGoldenTektiteMiddle; Minor; golden7Item:Define:FirstByte, golden7Sub:Define:SecondByte; Helpers.CanFuseGreenSplit, Helpers.CanFuseRedCrack, Helpers.HasMagicBoomerang, Items.PacciCane, Locations.AccessCrenel, Helpers.HasSword; Items.Rupee100
 		MinishGoldenOcto;          Minor; golden8Item:Define:FirstByte, golden8Sub:Define:SecondByte; Helpers.CanFuseShared, Locations.AccessMinishWoods, (|Items.Flippers, Items.RocsCape,(&Items.PacciCane,(|Items.Ocarina, Items.LonLonKey))), Helpers.HasSword; Items.Rupee100
 		WesternWoodGoldenOcto;     Minor; golden9Item:Define:FirstByte, golden9Sub:Define:SecondByte; Helpers.CanFuseBlueL, Helpers.CanFuseGreenSpike, Locations.AccessWilds, Locations.AccessMinishWoods, Helpers.HasSword; Items.Rupee100
