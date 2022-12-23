@@ -36,10 +36,11 @@ lilypadAdventureFix2:
 #incbin "asm/lilypadAdventureFix2.dmp"
 
 //fix bottle glitch
-PUSH; ORG $78A80; jumpToHack(bottleFix); POP
-ALIGN 4
-bottleFix:
-#incbin "asm/bottleFix.dmp"
+//disabled because it breaks invulnerability in multiple scenarios during normal gameplay
+//PUSH; ORG $78A80; jumpToHack(bottleFix); POP
+//ALIGN 4
+//bottleFix:
+//#incbin "asm/bottleFix.dmp"
 
 //fix boss door clip with lantern
 PUSH; ORG $77E5C; jumpToHack(bossdoorFix); POP
