@@ -55,10 +55,11 @@ magicrangFix:
 #incbin "asm/magicrangFix.dmp"
 
 //link can no longer climb while on fire
-PUSH; ORG $7A6BE; SHORT 0xB408; jumpToHack(fireStairsFix); POP
-ALIGN 4
-fireStairsFix:
-#incbin "asm/fireStairsFix.dmp"
+//disabled because it causes glitchy behavior when approaching a ladder from the side
+//PUSH; ORG $7A6BE; SHORT 0xB408; jumpToHack(fireStairsFix); POP
+//ALIGN 4
+//fireStairsFix:
+//#incbin "asm/fireStairsFix.dmp"
 
 //can no longer buy nothing at shops
 PUSH; ORG $81390; jumpToHack(buyNothingFix); POP
