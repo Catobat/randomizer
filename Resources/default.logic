@@ -76,7 +76,7 @@
 !flag - Setting - TIMEDOHKO - Die in one hit if the timer runs out
 !flag - Setting - MUSIC_RANDO - Randomize Music
 !flag - Setting - FIGURINE_HUNT - Shuffle figurines into item pool
-# !flag - Setting - FIREROD - Start with the Firerod # requires patch
+!flag - Setting - FIREROD - Start with the Firerod
 !flag - Setting - AD_PED - Require all dungeons for ped
 !dropdown - Setting - ITEM_POOL - Normal item pool - ITEM_POOL_NORMAL - Reduced item pool - ITEM_POOL_RIP - Plentiful item pool - ITEM_POOL_PLENTIFUL
 !dropdown - Setting - FUSION_SETTING - No normal fusions - NO_FUSIONS - Open fusion mode - OPENFUSIONS - Vanilla Fusions - VANILLA_FUSIONS_OLD - Vanilla (Kinstone Logic) - VANILLA_FUSIONS_NEW
