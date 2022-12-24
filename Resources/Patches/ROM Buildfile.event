@@ -159,6 +159,17 @@ WORD 0x8009FC4 0x2002EA5 0x01 //Belari - check a custom flag instead of bombs
 WORD 0x8012310 0x2002B32 0x01 //Percy's house - don't check for boots
 WORD 0 0 0 //terminator
 
+//Melari's Mine room flags
+//Instead of exited mine with White Sword, check if defeated Gleerok
+PUSH
+ORG $4C2AE //Melari's room
+BYTE 0x03
+ORG $4C2CE //Kitchen
+BYTE 0x03
+ORG $4C2EE //Bedroom
+BYTE 0x03
+POP
+
 //ice blocks have a question mark inside
 PUSH
 ORG $5EE3D0
