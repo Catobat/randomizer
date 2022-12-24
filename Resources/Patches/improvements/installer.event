@@ -573,6 +573,14 @@ ALIGN 4
 cafe:
 #incbin "cafe.bin"
 
+//make all fusers non-fickle
+#ifdef removeFickleness
+	PUSH
+	ORG $1EA54
+	SHORT 0xE006
+	POP
+#endif
+
 #include "glitchless.event"
 #include "dungeon.event"
 #include "fairy.event"

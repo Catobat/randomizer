@@ -81,6 +81,7 @@
 !dropdown - Setting - ITEM_POOL - Normal item pool - ITEM_POOL_NORMAL - Reduced item pool - ITEM_POOL_RIP - Plentiful item pool - ITEM_POOL_PLENTIFUL
 !dropdown - Setting - FUSION_SETTING - No normal fusions - NO_FUSIONS - Open fusion mode - OPENFUSIONS - Vanilla Fusions - VANILLA_FUSIONS_OLD - Vanilla (Kinstone Logic) - VANILLA_FUSIONS_NEW
 !dropdown - Setting - FUSION_SKIPS - Allow fusion skips - ALLOW_FUSION_SKIPS - Instant fusion skip - INSTANT_SKIP - No fusion skips - NO_FUSION_SKIP
+!flag - Setting - DEFICKLE - Make all fusers not fickle - true
 !dropdown - Setting - DHC_SETTING - Ped Open/Regular DHC - NORMALDHC - Ped Finish/No DHC - NODHC - Open DHC - OPENDHC - Open DHC + Ped Items - PEDITEMS
 !numberbox - Setting - FIGURINE_COUNT - Figurine count
 !numberbox - Setting - FIGURINE_EXTRA - Extra figurines
@@ -217,6 +218,9 @@
     !ifdef - NO_FUSIONS
         !eventdefine - noFusions                         # if defined, fusions other than golden kinstone fusions are not available
     !endif
+!endif
+!ifdef - DEFICKLE
+    !eventdefine - removeFickleness
 !endif
 !ifdef - GLITCHLESS
     !eventdefine - glitchless                        # if defined, bugfixes are installed
