@@ -82,6 +82,10 @@
 !dropdown - Setting - FUSION_SETTING - No normal fusions - NO_FUSIONS - Open fusion mode - OPENFUSIONS - Vanilla Fusions - VANILLA_FUSIONS_OLD - Vanilla (Kinstone Logic) - VANILLA_FUSIONS_NEW
 !dropdown - Setting - FUSION_SKIPS - Allow fusion skips - ALLOW_FUSION_SKIPS - Instant fusion skip - INSTANT_SKIP - No fusion skips - NO_FUSION_SKIP
 !flag - Setting - DEFICKLE - Make all fusers not fickle - true
+!flag - Setting - COMBINE_GOLD - Combine Gold Kinstones
+!flag - Setting - COMBINE_RED - Combine Red Kinstones
+!flag - Setting - COMBINE_BLUE - Combine Blue Kinstones
+!flag - Setting - COMBINE_GREEN - Combine Green Kinstones
 !dropdown - Setting - DHC_SETTING - Ped Open/Regular DHC - NORMALDHC - Ped Finish/No DHC - NODHC - Open DHC - OPENDHC - Open DHC + Ped Items - PEDITEMS
 !numberbox - Setting - FIGURINE_COUNT - Figurine count
 !numberbox - Setting - FIGURINE_EXTRA - Extra figurines
@@ -221,6 +225,18 @@
 !endif
 !ifdef - DEFICKLE
     !eventdefine - removeFickleness
+!endif
+!ifdef - COMBINE_GOLD
+    !eventdefine - combineKinstonesGold
+!endif
+!ifdef - COMBINE_RED
+    !eventdefine - combineKinstonesRed
+!endif
+!ifdef - COMBINE_BLUE
+    !eventdefine - combineKinstonesBlue
+!endif
+!ifdef - COMBINE_GREEN
+    !eventdefine - combineKinstonesGreen
 !endif
 !ifdef - GLITCHLESS
     !eventdefine - glitchless                        # if defined, bugfixes are installed
@@ -388,6 +404,24 @@
             !replaceamount - Items.KinstoneX.0x75 - 5 - `SHELLVALS`
             !settype - Items.KinstoneX.* - Major
         !endif
+    !endif
+!endif
+
+!ifdef - COMBINE_GOLD
+    !replace - Items.KinstoneX.YellowTotemProng - Items.KinstoneX.YellowTornadoProng::1
+    !replace - Items.KinstoneX.YellowCrown - Items.KinstoneX.YellowTornadoProng::1
+!endif
+!ifdef - VANILLA_FUSIONS
+    !ifdef - COMBINE_RED
+        !replace - Items.KinstoneX.0x6F - Items.KinstoneX.0x6E::1
+        !replace - Items.KinstoneX.0x70 - Items.KinstoneX.0x6E::1
+    !endif
+    !ifdef - COMBINE_BLUE
+        !replace - Items.KinstoneX.0x72 - Items.KinstoneX.0x71::1
+    !endif
+    !ifdef - COMBINE_GREEN
+        !replace - Items.KinstoneX.0x74 - Items.KinstoneX.0x73::1
+        !replace - Items.KinstoneX.0x75 - Items.KinstoneX.0x73::1
     !endif
 !endif
 
@@ -647,15 +681,42 @@ HasBeam;         Helper;; Helpers.HasSword, (|Items.SwordBeam, Items.PerilBeam)
 CanDownThrust;   Helper;; Helpers.HasSword, Items.DownThrust, Items.RocsCape
 CanDestroyTrees; Helper;; (|Helpers.HasSword, Helpers.HasLightBow, Items.BombBag, Items.LanternOff)
 
+!ifndef - COMBINE_GOLD
+    CanFuseGoldTornado;  Helper;; Items.KinstoneX.YellowTornadoProng::5
+    CanFuseGoldTotem;    Helper;; Items.KinstoneX.YellowTotemProng::3
+    CanFuseGoldCrown;    Helper;; Items.KinstoneX.YellowCrown
+!else
+    CanFuseGoldTornado;  Helper;; (+9, Items.KinstoneX.YellowTornadoProng, Items.KinstoneX.YellowTotemProng, Items.KinstoneX.YellowCrown)
+    CanFuseGoldTotem;    Helper;; (+9, Items.KinstoneX.YellowTornadoProng, Items.KinstoneX.YellowTotemProng, Items.KinstoneX.YellowCrown)
+    CanFuseGoldCrown;    Helper;; (+4, Items.KinstoneX.YellowTornadoProng, Items.KinstoneX.YellowTotemProng, Items.KinstoneX.YellowCrown)
+!endif
+
 !ifdef - VANILLA_FUSIONS_NEW
-    CanFuseRedW;     Helper;; Items.KinstoneX.0x6E::7
-    CanFuseRedV;     Helper;; Items.KinstoneX.0x6F::9
-    CanFuseRedE;     Helper;; Items.KinstoneX.0x70::8
-    CanFuseBlueL;    Helper;; Items.KinstoneX.0x71::9
-    CanFuseBlueS;    Helper;; Items.KinstoneX.0x72::9
-    CanFuseGreenC;   Helper;; Items.KinstoneX.0x73::17
-    CanFuseGreenG;   Helper;; Items.KinstoneX.0x74::16
-    CanFuseGreenP;   Helper;; Items.KinstoneX.0x75::16
+    !ifndef - COMBINE_RED
+        CanFuseRedW;     Helper;; Items.KinstoneX.0x6E::9
+        CanFuseRedV;     Helper;; Items.KinstoneX.0x6F::7
+        CanFuseRedE;     Helper;; Items.KinstoneX.0x70::8
+    !else
+        CanFuseRedW;     Helper;; (+24, Items.KinstoneX.0x6E, Items.KinstoneX.0x6F, Items.KinstoneX.0x70)
+        CanFuseRedV;     Helper;; (+24, Items.KinstoneX.0x6E, Items.KinstoneX.0x6F, Items.KinstoneX.0x70)
+        CanFuseRedE;     Helper;; (+24, Items.KinstoneX.0x6E, Items.KinstoneX.0x6F, Items.KinstoneX.0x70)
+    !endif
+    !ifndef - COMBINE_BLUE
+        CanFuseBlueL;    Helper;; Items.KinstoneX.0x71::9
+        CanFuseBlueS;    Helper;; Items.KinstoneX.0x72::9
+    !else
+        CanFuseBlueL;    Helper;; (+18, Items.KinstoneX.0x71, Items.KinstoneX.0x72)
+        CanFuseBlueS;    Helper;; (+18, Items.KinstoneX.0x71, Items.KinstoneX.0x72)
+    !endif
+    !ifndef - COMBINE_GREEN
+        CanFuseGreenC;   Helper;; Items.KinstoneX.0x73::17
+        CanFuseGreenG;   Helper;; Items.KinstoneX.0x74::16
+        CanFuseGreenP;   Helper;; Items.KinstoneX.0x75::16
+    !else
+        CanFuseGreenC;   Helper;; (+49, Items.KinstoneX.0x73, Items.KinstoneX.0x74, Items.KinstoneX.0x75)
+        CanFuseGreenG;   Helper;; (+49, Items.KinstoneX.0x73, Items.KinstoneX.0x74, Items.KinstoneX.0x75)
+        CanFuseGreenP;   Helper;; (+49, Items.KinstoneX.0x73, Items.KinstoneX.0x74, Items.KinstoneX.0x75)
+    !endif
     CanFuseShared;   Helper;; Helpers.CanFuseRedV, Helpers.CanFuseBlueS, Helpers.CanFuseGreenC, Helpers.CanFuseGreenG, Helpers.CanFuseGreenP
 !else
     CanFuseRedW;     Helper;;
@@ -802,11 +863,11 @@ WildsTopChest;                Minor; 0x04-0x00-0x00;                            
 WildsTopRightCaveHeartPiece;  Major; 0x0D9907;                                                                     Locations.AccessWilds, Helpers.HasBow, (|Items.Flippers, Items.RocsCape)
 SwiftbladeTheFirstHeartPiece; Major; 0x0D78CB;                                                                     Locations.AccessWilds, (|Helpers.HasBow, Items.RocsCape, Items.Flippers)
 SwiftbladeTheFirstScroll;     Major; swiftbladeIDojoItem:Define:FirstByte, swiftbladeIDojoSub:Define:SecondByte;   Helpers.HasSword, Locations.SwiftbladeTheFirstHeartPiece, Helpers.GotScrolls;                                                      Items.GreatSpin
-RuinsBombCave;                Minor; 0x2A-0x02-0x00;                                                               Locations.AccessWilds, (|Helpers.HasBow, Items.RocsCape, Items.Flippers), Items.KinstoneX.YellowTotemProng::3, Items.BombBag
-RuinsMinishHome;              Minor; 0x27-0x07-0x00;                                                               Locations.AccessWilds, (|Helpers.HasBow, Items.RocsCape, Items.Flippers), Items.KinstoneX.YellowTotemProng::3, Helpers.HasSword
-RuinsMinishCaveHeartPiece;    Major; 0x0DB4BF;                                                                     Locations.AccessWilds, (|Helpers.HasBow, Items.RocsCape, Items.Flippers), Items.KinstoneX.YellowTotemProng::3, Helpers.HasSword
-RuinsArmosKillLeft;           Minor; 0x05-0x05-0x00;                                                               Locations.AccessWilds, (|Helpers.HasBow, Items.RocsCape, Items.Flippers), Items.KinstoneX.YellowTotemProng::3, Helpers.HasSword
-RuinsArmosKillRight;          Minor; 0x05-0x05-0x01;                                                               Locations.AccessWilds, (|Helpers.HasBow, Items.RocsCape, Items.Flippers), Items.KinstoneX.YellowTotemProng::3, Helpers.HasSword
+RuinsBombCave;                Minor; 0x2A-0x02-0x00;                                                               Locations.AccessWilds, (|Helpers.HasBow, Items.RocsCape, Items.Flippers), Helpers.CanFuseGoldTotem, Items.BombBag
+RuinsMinishHome;              Minor; 0x27-0x07-0x00;                                                               Locations.AccessWilds, (|Helpers.HasBow, Items.RocsCape, Items.Flippers), Helpers.CanFuseGoldTotem, Helpers.HasSword
+RuinsMinishCaveHeartPiece;    Major; 0x0DB4BF;                                                                     Locations.AccessWilds, (|Helpers.HasBow, Items.RocsCape, Items.Flippers), Helpers.CanFuseGoldTotem, Helpers.HasSword
+RuinsArmosKillLeft;           Minor; 0x05-0x05-0x00;                                                               Locations.AccessWilds, (|Helpers.HasBow, Items.RocsCape, Items.Flippers), Helpers.CanFuseGoldTotem, Helpers.HasSword
+RuinsArmosKillRight;          Minor; 0x05-0x05-0x01;                                                               Locations.AccessWilds, (|Helpers.HasBow, Items.RocsCape, Items.Flippers), Helpers.CanFuseGoldTotem, Helpers.HasSword
 
 # Lake Hylia Locations
 AccessHyliaNorth;      Helper;;                                                                         Locations.AccessEastField,(|Items.RocsCape, Items.LonLonKey,Items.Ocarina,(&Items.Flippers, Items.MoleMitts))
@@ -855,7 +916,7 @@ KingGift:`ELEMENT_DUNGEON`; Major; 0x00DA5A; Locations.AccessValley, Items.Grave
  !endif
 
 # Veil Falls Locations
-AccessFallsNorth;     Helper;;               Items.BombBag, Items.KinstoneX.YellowCrown, Items.LanternOff
+AccessFallsNorth;     Helper;;               Items.BombBag, Helpers.CanFuseGoldCrown, Items.LanternOff
 FallsBehindWall;      Minor; 0x33-0x05-0x00; Locations.AccessFallsNorth, Items.BombBag
 FallsCliff;           Minor; 0x0A-0x00-0x00; Locations.AccessFallsNorth, Items.BombBag, Helpers.CanSplit3
 FallsTopCaveBomb;     Minor; 0x33-0x02-0x00; Locations.AccessFallsNorth, Items.GripRing, Items.BombBag
@@ -879,7 +940,7 @@ CloudsWestRight;   Minor; 0x08-0x01-0x04; Locations.AccessClouds, Items.MoleMitt
 CloudsSouthLeft;   Minor; 0x08-0x01-0x05; Locations.AccessClouds, Items.MoleMitts
 CloudsSouthRight;  Minor; 0x08-0x01-0x06; Locations.AccessClouds, (|Items.RocsCape, Items.MoleMitts)
 
-AccessUpperClouds; Helper;;               Locations.AccessClouds, (|Items.RocsCape, Items.MoleMitts), Items.KinstoneX.YellowTornadoProng::5
+AccessUpperClouds; Helper;;               Locations.AccessClouds, (|Items.RocsCape, Items.MoleMitts), Helpers.CanFuseGoldTornado
 
 !ifdef - NO_FUSIONS
     TowerBottomLeft;   Minor; 0x30-0x00-0x00; Locations.AccessUpperClouds;
@@ -991,7 +1052,7 @@ CoFPrize:`ELEMENT_DUNGEON`;       `ELEMENT`;          0x0E0F03;                 
 
 
 # Fortress of Winds Locations
-AccessFortress:Fortress;                    Helper;            ;                                                                                 Locations.AccessWilds, Items.KinstoneX.YellowTotemProng::3, (|Helpers.HasBow, Items.RocsCape, Items.Flippers)
+AccessFortress:Fortress;                    Helper;            ;                                                                                 Locations.AccessWilds, Helpers.CanFuseGoldTotem, (|Helpers.HasBow, Items.RocsCape, Items.Flippers)
 FortressEntrance:Fortress;                  Minor;             0x18-0x00-0x00;                                                                   Locations.AccessFortress, Items.MoleMitts
 FortressHeartPiece:Fortress;                Major;             0x0E2DD7;                                                                         Locations.AccessFortress, Helpers.CanSplit2
 FortressOutsideF2Left:Fortress;             Minor;             0x18-0x01-0x00;                                                                   Locations.AccessFortress, Items.MoleMitts, Helpers.HasBow
@@ -1699,7 +1760,7 @@ PalacePrize:`ELEMENT_DUNGEON`;     `ELEMENT`;         0x0E69E3;                 
 
 !ifdef - GOLDEN_ENEMY
     !ifdef - OPENFUSIONS
-		RuinsGoldenOcto;           Minor; golden1Item:Define:FirstByte, golden1Sub:Define:SecondByte; Locations.AccessWilds, (|Helpers.HasBow, Items.RocsCape, Items.Flippers), Items.KinstoneX.YellowTotemProng::3, Helpers.HasSword; Items.Rupee100
+		RuinsGoldenOcto;           Minor; golden1Item:Define:FirstByte, golden1Sub:Define:SecondByte; Locations.AccessFortress, Helpers.HasSword; Items.Rupee100
 		CrenelGoldenTektiteLower;  Minor; golden2Item:Define:FirstByte, golden2Sub:Define:SecondByte; Locations.AccessCrenel, Helpers.HasSword; Items.Rupee100
 		WildsGoldenRope;           Minor; golden3Item:Define:FirstByte, golden3Sub:Define:SecondByte; Locations.AccessWilds, Helpers.HasSword; Items.Rupee100
 		EastGoldenRope;            Minor; golden4Item:Define:FirstByte, golden4Sub:Define:SecondByte; Helpers.CanDestroyTrees, Helpers.HasSword; Items.Rupee100
@@ -1710,7 +1771,7 @@ PalacePrize:`ELEMENT_DUNGEON`;     `ELEMENT`;         0x0E69E3;                 
 		WesternWoodGoldenOcto;     Minor; golden9Item:Define:FirstByte, golden9Sub:Define:SecondByte; Helpers.CanSplit2, Helpers.HasSword; Items.Rupee100
 	!endif
     !ifdef - VANILLA_FUSIONS
-		RuinsGoldenOcto;           Minor; golden1Item:Define:FirstByte, golden1Sub:Define:SecondByte; Helpers.CanFuseGreenP, Items.Ocarina, (|(&Items.PacciCane, Items.HyruleanBestiary, Items.PicoriLegend, Items.MaskHistory, Items.GripRing), (&Helpers.CanFuseShared, Helpers.CanFuseRedE, Helpers.CanFuseRedW, Items.Flippers)), Locations.AccessWilds, (|Helpers.HasBow, Items.RocsCape, Items.Flippers), Items.KinstoneX.YellowTotemProng::3, Helpers.HasSword; Items.Rupee100
+		RuinsGoldenOcto;           Minor; golden1Item:Define:FirstByte, golden1Sub:Define:SecondByte; Helpers.CanFuseGreenP, Items.Ocarina, (|(&Items.PacciCane, Items.HyruleanBestiary, Items.PicoriLegend, Items.MaskHistory, Items.GripRing), (&Helpers.CanFuseShared, Helpers.CanFuseRedE, Helpers.CanFuseRedW, Items.Flippers)), Locations.AccessFortress, Helpers.HasSword; Items.Rupee100
 		CrenelGoldenTektiteLower;  Minor; golden2Item:Define:FirstByte, golden2Sub:Define:SecondByte; Helpers.CanFuseGreenC, Locations.CompleteCoF, Locations.CrenelBlockChest, Helpers.HasSword; Items.Rupee100
 		WildsGoldenRope;           Minor; golden3Item:Define:FirstByte, golden3Sub:Define:SecondByte; Helpers.CanFuseGreenG, (|Helpers.CanFuseRedW, Locations.AccessUpperClouds), Locations.AccessWilds, Helpers.HasSword; Items.Rupee100
 		EastGoldenRope;            Minor; golden4Item:Define:FirstByte, golden4Sub:Define:SecondByte; Helpers.CanFuseShared, Helpers.CanDestroyTrees, Helpers.HasSword; Items.Rupee100
