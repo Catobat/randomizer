@@ -79,7 +79,7 @@
 !flag - Setting - FIREROD - Start with the Firerod
 !flag - Setting - AD_PED - Require all dungeons for ped
 !dropdown - Setting - ITEM_POOL - Normal item pool - ITEM_POOL_NORMAL - Reduced item pool - ITEM_POOL_RIP - Plentiful item pool - ITEM_POOL_PLENTIFUL
-!dropdown - Setting - FUSION_SETTING - No normal fusions - NO_FUSIONS - Open fusion mode - OPENFUSIONS - Vanilla Fusions - VANILLA_FUSIONS_OLD - Vanilla (Kinstone Logic) - VANILLA_FUSIONS_NEW
+!dropdown - Setting - FUSION_SETTING - No normal fusions - NO_FUSIONS - Open fusion mode - OPENFUSIONS - Vanilla Fusions (Old) - VANILLA_FUSIONS_OLD - Vanilla (Kinstone Logic) - VANILLA_FUSIONS_NEW
 !dropdown - Setting - FUSION_SKIPS - Allow fusion skips - ALLOW_FUSION_SKIPS - Instant fusion skip - INSTANT_SKIP - No fusion skips - NO_FUSION_SKIP
 !flag - Setting - DEFICKLE - Make all fusers not fickle - true
 !flag - Setting - COMBINE_GOLD - Combine Gold Kinstones
@@ -246,13 +246,14 @@
     !eventdefine - randomLanguage                     # if defined, text changes language constantly
 !endif
 
+!eventdefine - neverSkipFusionCutscene # never run broken old cutscene skip code
 !ifdef - ALLOW_FUSION_SKIPS
-	!eventdefine - alwaysSkipFusionCutscene - 0
+	!eventdefine - alwaysSkipFusionCutsceneFull - 0
 !else
 	!ifdef - INSTANT_SKIP
-        	!eventdefine - alwaysSkipFusionCutscene - 1  # if 0 fusion cutscenes are skipped when the buttons are held, if non-0 they are always instantly skipped
+        	!eventdefine - alwaysSkipFusionCutsceneFull - 1  # if 0 fusion cutscenes are skipped when the buttons are held, if non-0 they are always instantly skipped
     	!else
-    		!eventdefine - neverSkipFusionCutscene           # if defined, fusion cutscenes are just like vanilla
+    		!eventdefine - neverSkipFusionCutsceneFull       # if defined, fusion cutscenes are just like vanilla
     	!endif
 !endif
 
