@@ -1,9 +1,11 @@
+.equ showMap, always+4
 .thumb
 @vanilla check
 add	r1,r0
 ldrb	r0,[r1,#3]
 cmp	r0,#0
-beq	noCutscene
+@vanilla behavior for gold fusions
+beq	return
 
 @check if we always skip
 ldr	r3,always
@@ -16,13 +18,21 @@ ldrh	r3,[r3]
 mov	r2,#0x0B
 and	r3,r2
 cmp	r3,#0
-bne	noCutscene
+beq	cutscene
+
+noCutscene:
+ldr	r3,showMap
+cmp	r3,#0
+beq	fullSkip
+
+@go straight to map screen
+mov	r0,#0x0A
 
 cutscene:
 ldr	r3,=#0x80A35ED
 bx	r3
 
-noCutscene:
+fullSkip:
 @get the fusion id into place
 ldrb	r0,[r1,#3]
 ldrb	r1,[r1,#4]
@@ -58,7 +68,8 @@ mov	r0,#0x96
 lsl	r0,#1
 strh	r0,[r2,#8]
 pop	{r4}
-@return
+
+return:
 ldr	r3,=#0x80A3601
 bx	r3
 

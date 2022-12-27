@@ -1,6 +1,14 @@
-#ifndef neverSkipFusionCutsceneFull //define to never skip
+#ifndef neverSkipFusionCutsceneFull //define to never skip (cutscene and map view)
+	#define skipFusionCutsceneSomeForm
 	#ifndef alwaysSkipFusionCutsceneFull
-		#define alwaysSkipFusionCutsceneFull 0 //set to non-0 to skip, set to 0 to skip on button held
+		#define alwaysSkipFusionCutsceneFull 0 //set to non-0 to skip both, set to 0 to skip both on button held
+	#endif
+#endif
+
+#ifndef neverSkipFusionCutsceneShowMap //define to never skip (only cutscene)
+	#define skipFusionCutsceneSomeForm
+	#ifndef alwaysSkipFusionCutsceneShowMap
+		#define alwaysSkipFusionCutsceneShowMap 0 //set to non-0 to skip cutscene, set to 0 to skip cutscene on button held
 	#endif
 #endif
 
@@ -18,12 +26,18 @@ PUSH; ORG $566B2; SHORT 0x8801; POP
 PUSH; ORG $56726; SHORT 0x8801; POP
 
 //skip fusion cutscene if A, B or START are held
-#ifndef neverSkipFusionCutsceneFull
+#ifdef skipFusionCutsceneSomeForm
 	PUSH; ORG $A35E4; jumpToHack(skipFusionCutscene); POP
 	ALIGN 4
 	skipFusionCutscene:
 	#incbin "asm/skipFusionCutscene.dmp"
-	WORD alwaysSkipFusionCutsceneFull //set to non-0 to always skip fusion cutscene
+	#ifndef neverSkipFusionCutsceneFull
+		WORD alwaysSkipFusionCutsceneFull //set to non-0 to always skip fusion cutscene and map view
+		WORD 0
+	#else
+		WORD alwaysSkipFusionCutsceneShowMap //set to non-0 to always skip fusion cutscene
+		WORD 1
+	#endif
 #endif
 
 //skip minish transformation cutscenes automatically

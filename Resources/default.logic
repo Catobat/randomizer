@@ -80,7 +80,7 @@
 !flag - Setting - AD_PED - Require all dungeons for ped
 !dropdown - Setting - ITEM_POOL - Normal item pool - ITEM_POOL_NORMAL - Reduced item pool - ITEM_POOL_RIP - Plentiful item pool - ITEM_POOL_PLENTIFUL
 !dropdown - Setting - FUSION_SETTING - No normal fusions - NO_FUSIONS - Open fusion mode - OPENFUSIONS - Vanilla Fusions (Old) - VANILLA_FUSIONS_OLD - Vanilla (Kinstone Logic) - VANILLA_FUSIONS_NEW
-!dropdown - Setting - FUSION_SKIPS - Allow fusion skips - ALLOW_FUSION_SKIPS - Instant fusion skip - INSTANT_SKIP - No fusion skips - NO_FUSION_SKIP
+!dropdown - Setting - FUSION_SKIPS - Allow skips (show map) - ALLOW_FUSION_SKIPS - Instant skip (show map) - INSTANT_SKIP - Allow fusion skips - ALLOW_FUSION_SKIPS_FULL - Instant fusion skip - INSTANT_SKIP_FULL - No fusion skips - NO_FUSION_SKIP
 !flag - Setting - DEFICKLE - Make all fusers not fickle - true
 !flag - Setting - COMBINE_GOLD - Combine Gold Kinstones
 !flag - Setting - COMBINE_RED - Combine Red Kinstones
@@ -247,14 +247,23 @@
 !endif
 
 !eventdefine - neverSkipFusionCutscene # never run broken old cutscene skip code
-!ifdef - ALLOW_FUSION_SKIPS
-	!eventdefine - alwaysSkipFusionCutsceneFull - 0
+!ifdef - ALLOW_FUSION_SKIPS_FULL
+    !eventdefine - alwaysSkipFusionCutsceneFull - 0
 !else
-	!ifdef - INSTANT_SKIP
-        	!eventdefine - alwaysSkipFusionCutsceneFull - 1  # if 0 fusion cutscenes are skipped when the buttons are held, if non-0 they are always instantly skipped
-    	!else
-    		!eventdefine - neverSkipFusionCutsceneFull       # if defined, fusion cutscenes are just like vanilla
-    	!endif
+    !ifdef - INSTANT_SKIP_FULL
+        !eventdefine - alwaysSkipFusionCutsceneFull - 1             # if 0, fusion cutscenes and map views are skipped when the buttons are held, if non-0 they are always instantly skipped
+    !else
+        !eventdefine - neverSkipFusionCutsceneFull                  # if defined, fusion cutscenes are just like vanilla
+        !ifdef - ALLOW_FUSION_SKIPS
+            !eventdefine - alwaysSkipFusionCutsceneShowMap - 0
+        !else
+            !ifdef - INSTANT_SKIP
+                !eventdefine - alwaysSkipFusionCutsceneShowMap - 1  # if 0, fusion cutscenes are skipped when the buttons are held, if non-0 they are always instantly skipped, map views are shown
+            !else
+                !eventdefine - neverSkipFusionCutsceneShowMap       # if defined, fusion cutscenes and map views are just like vanilla
+            !endif
+        !endif
+    !endif
 !endif
 
 !ifdef - TRAPS
