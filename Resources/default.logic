@@ -406,12 +406,21 @@
         !replace - Items.KinstoneX.0x75 - `SWAPGREEN`
     !else
         !ifdef - VANILLA_FUSIONS_NEW
-            !replaceamount - Items.KinstoneX.0x73 - 10 - Items.KinstoneX.0x6E
-            !replaceamount - Items.KinstoneX.0x74 - 10 - Items.KinstoneX.0x6F
-            !replaceamount - Items.KinstoneX.0x75 - 10 - Items.KinstoneX.0x70
-            !replaceamount - Items.KinstoneX.0x73 - 5 - Items.KinstoneX.0x71
-            !replaceamount - Items.KinstoneX.0x74 - 5 - Items.KinstoneX.0x72
-            !replaceamount - Items.KinstoneX.0x75 - 5 - `SHELLVALS`
+            !ifndef - COMBINE_GREEN
+                !replaceamount - Items.KinstoneX.0x73 - 10 - Items.KinstoneX.0x6E
+                !replaceamount - Items.KinstoneX.0x74 - 10 - Items.KinstoneX.0x6F
+                !replaceamount - Items.KinstoneX.0x75 - 10 - Items.KinstoneX.0x70
+                !replaceamount - Items.KinstoneX.0x73 - 5 - Items.KinstoneX.0x71
+                !replaceamount - Items.KinstoneX.0x74 - 5 - Items.KinstoneX.0x72
+                !replaceamount - Items.KinstoneX.0x75 - 5 - `SHELLVALS`
+            !else
+                !replaceamount - Items.KinstoneX.0x73 - 10 - Items.KinstoneX.0x6E
+                !replaceamount - Items.KinstoneX.0x73 - 10 - Items.KinstoneX.0x6F
+                !replaceamount - Items.KinstoneX.0x73 - 10 - Items.KinstoneX.0x70
+                !replaceamount - Items.KinstoneX.0x73 - 5 - Items.KinstoneX.0x71
+                !replaceamount - Items.KinstoneX.0x73 - 5 - Items.KinstoneX.0x72
+                !replaceamount - Items.KinstoneX.0x73 - 5 - `SHELLVALS`
+            !endif
             !settype - Items.KinstoneX.* - Major
         !endif
     !endif
