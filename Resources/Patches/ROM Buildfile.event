@@ -501,4 +501,40 @@ PUSH
 	ORG $1084C2
 	BYTE 0x01
 #endif
+// Bakery
+#ifdef combineKinstonesRed
+	ORG $10BB91
+	BYTE 0x6E 0x6E 0x6E
+#endif
+#ifdef combineKinstonesBlue
+	ORG $10BB94
+	BYTE 0x71 0x71
+#endif
+#ifdef combineKinstonesGreen
+	ORG $10BB96
+	BYTE 0x73 0x73 0x73
+#endif
+// Inn
+#ifdef combineKinstonesRed
+	ORG $D61A3
+	BYTE 0x6E
+	ORG $D61B3
+	BYTE 0x6E
+	ORG $D61C3
+	BYTE 0x6E
+#endif
+#ifdef combineKinstonesBlue
+	ORG $D6257
+	BYTE 0x71
+	ORG $D6267
+	BYTE 0x71
+#endif
+#ifdef combineKinstonesGreen
+	ORG $D62E7
+	BYTE 0x73
+	ORG $D62F7
+	BYTE 0x73
+	ORG $D6307
+	BYTE 0x73
+#endif
 POP
