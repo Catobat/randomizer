@@ -110,7 +110,7 @@ mov	r0,#'4'
 strb	r0,[r7]
 mov	r0,#'0'
 strb	r0,[r7, #1]
-add	r7,#4
+add	r7,#2
 b	doneprice
 isFree:
 sub	r7, #4
