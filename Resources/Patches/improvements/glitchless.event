@@ -1,9 +1,10 @@
 #ifdef glitchless
 //prevent ocarina glitch from triggering, also prevents portal items, also also lantern glitch
-PUSH; ORG $772D8; jumpToHack(ocarinaGlitchFix); POP
-ALIGN 4
-ocarinaGlitchFix:
-#incbin "asm/ocarinaGlitchFix.dmp"
+//disabled because using the lantern while rolling, being grabbed by an enemy, using other items or doing many other things breaks the game
+//PUSH; ORG $772D8; jumpToHack(ocarinaGlitchFix); POP
+//ALIGN 4
+//ocarinaGlitchFix:
+//#incbin "asm/ocarinaGlitchFix.dmp"
 
 //fix mole cave walls affecting other mole caves and also make link not run forever
 PUSH; ORG $7FD48; jumpToHack(moleFix); POP
