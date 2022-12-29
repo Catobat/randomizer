@@ -71,6 +71,7 @@
 !flag - Setting - RUPEEMANIA - Add available rupees to pool
 !flag - Setting - GOLDEN_ENEMY - Golden enemy drops
 !flag - Setting - RANDOM_BOTTLE_CONTENT - Random bottle content
+!flag - Setting - HOMEWARP - Enable Homewarp
 !flag - Setting - WEAPONS - Damaging items other than sword seen as weapons
 !flag - Setting - TRAPS - Shuffle traps in itempool
 !flag - Setting - TIMEDOHKO - Die in one hit if the timer runs out
@@ -225,6 +226,9 @@
 !endif
 !ifdef - DEFICKLE
     !eventdefine - removeFickleness
+!endif
+!ifdef - HOMEWARP
+    !eventdefine - allowHomewarp
 !endif
 !ifdef - COMBINE_GOLD
     !eventdefine - combineKinstonesGold
