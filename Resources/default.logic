@@ -83,6 +83,7 @@
 !dropdown - Setting - FUSION_SETTING - No normal fusions - NO_FUSIONS - Open fusion mode - OPENFUSIONS - Vanilla Fusions (Old) - VANILLA_FUSIONS_OLD - Vanilla (Kinstone Logic) - VANILLA_FUSIONS_NEW
 !dropdown - Setting - FUSION_SKIPS - Allow skips (show map) - ALLOW_FUSION_SKIPS - Instant skip (show map) - INSTANT_SKIP - Allow fusion skips - ALLOW_FUSION_SKIPS_FULL - Instant fusion skip - INSTANT_SKIP_FULL - No fusion skips - NO_FUSION_SKIP
 !flag - Setting - DEFICKLE - Make all fusers not fickle - true
+!flag - Setting - SEEDED_SHARED - Seeded Shared Fusions
 !flag - Setting - COMBINE_GOLD - Combine Gold Kinstones
 !flag - Setting - COMBINE_RED - Combine Red Kinstones
 !flag - Setting - COMBINE_BLUE - Combine Blue Kinstones
@@ -672,6 +673,29 @@
     Area8aMusic:Music; DungeonItem; musicScrap:Define:FirstByte, 0x127693:SecondByte;; Items.LanternOff.0x2a:Music
     Area8bMusic:Music; DungeonItem; musicScrap:Define:FirstByte, 0x127697:SecondByte;; Items.LanternOff.0x2b:Music
     Area8cMusic:Music; DungeonItem; musicScrap:Define:FirstByte, 0x12769b:SecondByte;; Items.LanternOff.0x2c:Music
+!endif
+
+# Randomize Shared Fusion order if seeded
+!ifdef - SEEDED_SHARED
+    !eventdefine - seededSharedFusions
+    Shared00:SF;   DungeonItem; fusionScrap00:Define:FirstByte, 0x0C9844:SecondByte;; Items.LanternOff.0x18:SF
+    Shared01:SF;   DungeonItem; fusionScrap01:Define:FirstByte, 0x0C9845:SecondByte;; Items.LanternOff.0x2D:SF
+    Shared02:SF;   DungeonItem; fusionScrap02:Define:FirstByte, 0x0C9846:SecondByte;; Items.LanternOff.0x35:SF
+    Shared03:SF;   DungeonItem; fusionScrap03:Define:FirstByte, 0x0C9847:SecondByte;; Items.LanternOff.0x36:SF
+    Shared04:SF;   DungeonItem; fusionScrap04:Define:FirstByte, 0x0C9848:SecondByte;; Items.LanternOff.0x37:SF
+    Shared05:SF;   DungeonItem; fusionScrap05:Define:FirstByte, 0x0C9849:SecondByte;; Items.LanternOff.0x39:SF
+    Shared06:SF;   DungeonItem; fusionScrap06:Define:FirstByte, 0x0C984A:SecondByte;; Items.LanternOff.0x3C:SF
+    Shared07:SF;   DungeonItem; fusionScrap07:Define:FirstByte, 0x0C984B:SecondByte;; Items.LanternOff.0x44:SF
+    Shared08:SF;   DungeonItem; fusionScrap08:Define:FirstByte, 0x0C984C:SecondByte;; Items.LanternOff.0x46:SF
+    Shared09:SF;   DungeonItem; fusionScrap09:Define:FirstByte, 0x0C984D:SecondByte;; Items.LanternOff.0x47:SF
+    Shared0A:SF;   DungeonItem; fusionScrap0A:Define:FirstByte, 0x0C984E:SecondByte;; Items.LanternOff.0x4E:SF
+    Shared0B:SF;   DungeonItem; fusionScrap0B:Define:FirstByte, 0x0C984F:SecondByte;; Items.LanternOff.0x50:SF
+    Shared0C:SF;   DungeonItem; fusionScrap0C:Define:FirstByte, 0x0C9850:SecondByte;; Items.LanternOff.0x53:SF
+    Shared0D:SF;   DungeonItem; fusionScrap0D:Define:FirstByte, 0x0C9851:SecondByte;; Items.LanternOff.0x55:SF
+    Shared0E:SF;   DungeonItem; fusionScrap0E:Define:FirstByte, 0x0C9852:SecondByte;; Items.LanternOff.0x56:SF
+    Shared0F:SF;   DungeonItem; fusionScrap0F:Define:FirstByte, 0x0C9853:SecondByte;; Items.LanternOff.0x58:SF
+    Shared10:SF;   DungeonItem; fusionScrap10:Define:FirstByte, 0x0C9854:SecondByte;; Items.LanternOff.0x5F:SF
+    Shared11:SF;   DungeonItem; fusionScrap11:Define:FirstByte, 0x0C9855:SecondByte;; Items.LanternOff.0x60:SF
 !endif
 
 # Fix issues in Melari's Mine (should really be a patch)

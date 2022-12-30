@@ -593,7 +593,22 @@ cafe:
 #ifdef removeFickleness
 	PUSH
 	ORG $1EA54
-	SHORT 0xE006
+	SHORT 0xE006 //always offer fusion instead of random
+	POP
+#endif
+
+//shared fusions are done in a fixed order
+#ifdef seededSharedFusions
+	PUSH
+	ORG $1EA80
+	SHORT 0x2500 //start at index 0 instead of random
+	//vanilla data:
+	//ORG $1EA98
+	//POIN sharedFusions
+	//ORG $C9844
+	//sharedFusions:
+	//BYTE 0x18 0x2D 0x35 0x36 0x37 0x39 0x3C 0x44 0x46
+	//BYTE 0x47 0x4E 0x50 0x53 0x55 0x56 0x58 0x5F 0x60
 	POP
 #endif
 
