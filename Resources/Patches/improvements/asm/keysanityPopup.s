@@ -166,7 +166,12 @@ cmp	r7,#0x6C
 beq	totem
 cmp	r7,#0x6D
 beq	crown
-b	end
+
+commonKinstone:
+mov	r0, r8
+mov	r1, r7
+sub	r1, #0x6E-32
+b	register
 
 tornado:
 ldr	r0,=#0x71A
