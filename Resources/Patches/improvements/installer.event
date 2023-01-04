@@ -345,10 +345,12 @@ escapeWalls:
 #incbin "asm/escapeWalls.dmp"
 
 //normal kinstones have no popups
-PUSH; ORG $80DF4; jumpToHack(fastKinstone); POP
-ALIGN 4
-fastKinstone:
-#incbin "asm/fastKinstone.dmp"
+#ifdef fastKinstones
+	PUSH; ORG $80DF4; jumpToHack(fastKinstone); POP
+	ALIGN 4
+	fastKinstone:
+	#incbin "asm/fastKinstone.dmp"
+#endif
 
 //normal kinstones don't get added to the bag in nofusions
 #ifdef noFusions

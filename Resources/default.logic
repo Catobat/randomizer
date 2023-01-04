@@ -286,6 +286,10 @@
     !define - VANILLA_FUSIONS
 !endif
 
+!ifndef - VANILLA_FUSIONS
+    !eventdefine - fastKinstones
+!endif
+
 !define - SWAPRED - Items.Rupee20::50, Items.Bombs5::25, Items.Arrows5::25, Items.Rupee200::10 `TRAP_VAL` ;
 !define - SWAPBLUE - Items.Rupee5::50, Items.Bombs5::25, Items.Arrows5::25 ,Items.Rupee100::10 `TRAP_VAL` ;
 !define - SWAPGREEN - Items.Rupee1::50, Items.Bombs5::25, Items.Arrows5::25, Items.Rupee50::10 `TRAP_VAL` ;
