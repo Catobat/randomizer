@@ -537,4 +537,27 @@ PUSH
 	ORG $D6307
 	BYTE 0x73
 #endif
+// Simon's Simulations
+#ifdef combineKinstonesRed
+	ORG $F048B
+	BYTE 0x6E
+	ORG $F04A3
+	BYTE 0x6E
+	ORG $F04AB
+	BYTE 0x6E
+#endif
+#ifdef combineKinstonesBlue
+	ORG $F0483
+	BYTE 0x71
+	ORG $F048B
+	BYTE 0x71
+#endif
+#ifdef combineKinstonesGreen
+	ORG $F045B
+	BYTE 0x73
+	ORG $F0463
+	BYTE 0x73
+	ORG $F046B
+	BYTE 0x73
+#endif
 POP
