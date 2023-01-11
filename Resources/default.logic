@@ -68,8 +68,9 @@
 !flag - Setting - SHUFFLE_ELEMENTS -  Shuffle elements into item pool
 !flag - Setting - GLITCHLESS - Disable glitches - true
 !flag - Setting - WHYWOULDYOUDOTHISTOYOURSELF - Obscure spots
-!flag - Setting - RUPEEMANIA - Add available rupees to pool
+!flag - Setting - RUPEEMANIA - Available rupees
 !flag - Setting - GOLDEN_ENEMY - Golden enemy drops
+!dropdown - Setting - CUCCO_SETTING - Cucco Game: 1 Round - CUCCO_1 - Cucco Game: Nothing - CUCCO_0 - Cucco Game: 2 Rounds - CUCCO_2 - Cucco Game: 10 Rounds - CUCCO_10
 !flag - Setting - RANDOM_BOTTLE_CONTENT - Random bottle content
 !flag - Setting - HOMEWARP - Enable Homewarp
 !flag - Setting - ITEMS_COLLECT_ITEMS - Boomerang, Gust Jar and Sword can collect items (not in logic)
@@ -168,6 +169,7 @@
 !define - `FUSION_SKIPS`
 !define - `KEYS_SETTING`
 !define - `DHC_SETTING`
+!define - `CUCCO_SETTING`
 
 !ifdef - NO_FUSION_SKIP
     !eventdefine - NOFUSE
@@ -209,6 +211,20 @@
 
 !ifdef - KEASY
     !eventdefine - keasy
+!endif
+
+!ifdef - CUCCO_10
+    !eventdefine - cuccoSkippedLevels - 0
+!endif
+!ifdef - CUCCO_2
+    !eventdefine - cuccoSkippedLevels - 8
+!endif
+!ifdef - CUCCO_1
+    !eventdefine - cuccoSkippedLevels - 9
+!endif
+!ifdef - CUCCO_0
+    !eventdefine - cuccoSkippedLevels - 9
+    !eventdefine - cuccoHeartPieceFlag - 1
 !endif
 
 !ifdef - SHUFFLE_ELEMENTS
@@ -848,11 +864,59 @@ FountainBig;                   Major; 0x62-0x03-0x00;                           
 FountainSmall;                 Minor; 0x62-0x04-0x00;                                                               Helpers.HasBottle, (|Items.Flippers, Items.RocsCape)
 FountainHeartPiece;            Major; 0x0EF3B7;                                                                     Helpers.HasBottle, Items.RocsCape
 LibraryMinish;                 Minor; 0x00E7BE;                                                                     Items.HyruleanBestiary, Items.PicoriLegend, Items.MaskHistory, Items.Ocarina, Items.PacciCane
-CuccoMinigame;                 Major; 0x12460C;                                                                     (|Items.RocsCape, Items.Flippers)
 TownBell;                      Major; 0x05D602:FirstByte, 0x5D604:SecondByte;                                       Items.RocsCape;                                                                                                                         Items.PieceOfHeart
 FlipsCaveBig;                  Major; 0x62-0x10-0x00;                                                               Items.Ocarina, Helpers.HasDamageSource, Items.PacciCane, (|Items.Flippers, (&Items.HyruleanBestiary,Items.PicoriLegend,Items.MaskHistory, Items.GripRing, (|Items.GustJar, Items.RocsCape))) 
 FlipsCaveSmall;                Minor; 0x62-0x12-0x00;                                                               Items.Flippers, Items.Ocarina, Items.PacciCane, Items.LanternOff
 TingleTrophyItem;              Major; 0x016966;                                                                     Helpers.CanDestroyTrees, Items.PacciCane, Items.TingleTrophy;                                                                                                    Items.TingleTrophy
+
+!ifdef - CUCCO_10
+    CuccoMinigameLevel1;       Minor; 0x1245E8;                                                                     ;
+    CuccoMinigameLevel2;       Minor; 0x1245EC;                                                                     ;
+    CuccoMinigameLevel3;       Minor; 0x1245F0;                                                                     ;
+    CuccoMinigameLevel4;       Minor; 0x1245F4;                                                                     ;
+    CuccoMinigameLevel5;       Minor; 0x1245F8;                                                                     ;
+    CuccoMinigameLevel6;       Minor; 0x1245FC;                                                                     ;
+    CuccoMinigameLevel7;       Minor; 0x124600;                                                                     ;
+    CuccoMinigameLevel8;       Minor; 0x124604;                                                                     ;
+    CuccoMinigameLevel9;       Minor; 0x124608;                                                                     ;
+    CuccoMinigameLevel10;      Major; 0x12460C;                                                                     (|Items.RocsCape, Items.Flippers)
+!endif
+!ifdef - CUCCO_2
+    CuccoMinigameLevel1;       Minor; 0x1245E8;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel2;       Minor; 0x1245EC;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel3;       Minor; 0x1245F0;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel4;       Minor; 0x1245F4;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel5;       Minor; 0x1245F8;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel6;       Minor; 0x1245FC;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel7;       Minor; 0x124600;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel8;       Minor; 0x124604;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel9;       Minor; 0x124608;                                                                     ;
+    CuccoMinigameLevel10;      Major; 0x12460C;                                                                     (|Items.RocsCape, Items.Flippers)
+!endif
+!ifdef - CUCCO_1
+    CuccoMinigameLevel1;       Minor; 0x1245E8;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel2;       Minor; 0x1245EC;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel3;       Minor; 0x1245F0;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel4;       Minor; 0x1245F4;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel5;       Minor; 0x1245F8;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel6;       Minor; 0x1245FC;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel7;       Minor; 0x124600;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel8;       Minor; 0x124604;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel9;       Minor; 0x124608;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel10;      Major; 0x12460C;                                                                     (|Items.RocsCape, Items.Flippers)
+!endif
+!ifdef - CUCCO_0
+    CuccoMinigameLevel1;       Minor; 0x1245E8;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel2;       Minor; 0x1245EC;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel3;       Minor; 0x1245F0;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel4;       Minor; 0x1245F4;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel5;       Minor; 0x1245F8;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel6;       Minor; 0x1245FC;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel7;       Minor; 0x124600;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel8;       Minor; 0x124604;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel9;       Minor; 0x124608;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel10;      Minor; 0x12460C;                                                                     Helpers.Inaccessible
+!endif
 
 AccessEastField;  Helper;;                                        (|Helpers.CanDestroyTrees, Items.Ocarina)
 HillsKeeseCave;   Minor; 0x32-0x13-0x00;                          Items.BombBag
