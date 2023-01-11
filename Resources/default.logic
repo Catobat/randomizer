@@ -915,7 +915,7 @@ TingleTrophyItem;              Major; 0x016966;                                 
     CuccoMinigameLevel7;       Minor; 0x124600;                                                                     Helpers.Inaccessible
     CuccoMinigameLevel8;       Minor; 0x124604;                                                                     Helpers.Inaccessible
     CuccoMinigameLevel9;       Minor; 0x124608;                                                                     Helpers.Inaccessible
-    CuccoMinigameLevel10;      Minor; 0x12460C;                                                                     Helpers.Inaccessible
+    CuccoMinigameLevel10;      Major; 0x12460C;                                                                     Helpers.Inaccessible
 !endif
 
 AccessEastField;  Helper;;                                        (|Helpers.CanDestroyTrees, Items.Ocarina)
