@@ -287,7 +287,7 @@ POIN redWTextItalian
 redWTextEnglish:
 String("Kinstone Piece (Red W)"); BYTE 0
 redWTextFrench:
-String("Fragments du Bonheur (Red W)"); BYTE 0
+String("Fragments du Bonheur (Rouge W)"); BYTE 0
 redWTextGerman:
 String("Gl"); BYTE 0xFC; String("cksfragment (Rotes W)"); BYTE 0
 redWTextSpanish:
@@ -308,7 +308,7 @@ POIN redVTextItalian
 redVTextEnglish:
 String("Kinstone Piece (Red V)"); BYTE 0
 redVTextFrench:
-String("Fragments du Bonheur (Red V)"); BYTE 0
+String("Fragments du Bonheur (Rouge V)"); BYTE 0
 redVTextGerman:
 String("Gl"); BYTE 0xFC; String("cksfragment (Rotes V)"); BYTE 0
 redVTextSpanish:
@@ -329,7 +329,7 @@ POIN redETextItalian
 redETextEnglish:
 String("Kinstone Piece (Red E)"); BYTE 0
 redETextFrench:
-String("Fragments du Bonheur (Red E)"); BYTE 0
+String("Fragments du Bonheur (Rouge E)"); BYTE 0
 redETextGerman:
 String("Gl"); BYTE 0xFC; String("cksfragment (Rotes E)"); BYTE 0
 redETextSpanish:
@@ -350,7 +350,7 @@ POIN blueLTextItalian
 blueLTextEnglish:
 String("Kinstone Piece (Blue L)"); BYTE 0
 blueLTextFrench:
-String("Fragments du Bonheur (Blue L)"); BYTE 0
+String("Fragments du Bonheur (Bleu L)"); BYTE 0
 blueLTextGerman:
 String("Gl"); BYTE 0xFC; String("cksfragment (Blaues L)"); BYTE 0
 blueLTextSpanish:
@@ -371,7 +371,7 @@ POIN blueSTextItalian
 blueSTextEnglish:
 String("Kinstone Piece (Blue S)"); BYTE 0
 blueSTextFrench:
-String("Fragments du Bonheur (Blue S)"); BYTE 0
+String("Fragments du Bonheur (Bleu S)"); BYTE 0
 blueSTextGerman:
 String("Gl"); BYTE 0xFC; String("cksfragment (Blaues S)"); BYTE 0
 blueSTextSpanish:
@@ -392,7 +392,7 @@ POIN greenCTextItalian
 greenCTextEnglish:
 String("Kinstone Piece (Green C)"); BYTE 0
 greenCTextFrench:
-String("Fragments du Bonheur (Green C)"); BYTE 0
+String("Fragments du Bonheur (Vert C)"); BYTE 0
 greenCTextGerman:
 String("Gl"); BYTE 0xFC; String("cksfragment (Gr"); BYTE 0xFC; String("nes C)"); BYTE 0
 greenCTextSpanish:
@@ -413,7 +413,7 @@ POIN greenGTextItalian
 greenGTextEnglish:
 String("Kinstone Piece (Green G)"); BYTE 0
 greenGTextFrench:
-String("Fragments du Bonheur (Green G)"); BYTE 0
+String("Fragments du Bonheur (Vert G)"); BYTE 0
 greenGTextGerman:
 String("Gl"); BYTE 0xFC; String("cksfragment (Gr"); BYTE 0xFC; String("nes G)"); BYTE 0
 greenGTextSpanish:
@@ -434,7 +434,7 @@ POIN greenPTextItalian
 greenPTextEnglish:
 String("Kinstone Piece (Green P)"); BYTE 0
 greenPTextFrench:
-String("Fragments du Bonheur (Green P)"); BYTE 0
+String("Fragments du Bonheur (Vert P)"); BYTE 0
 greenPTextGerman:
 String("Gl"); BYTE 0xFC; String("cksfragment (Gr"); BYTE 0xFC; String("nes P)"); BYTE 0
 greenPTextSpanish:
