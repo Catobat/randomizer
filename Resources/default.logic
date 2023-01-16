@@ -369,7 +369,7 @@
     !endif
 !endif
 
-!define - SHELLVALS - Items.ShellsX, Items.ShellsX.1, Items.ShellsX.10, Items.ShellsX.20, Items.ShellsX.50, Items.ShellsX.80, Items.ShellsX.100, Items.ShellsX.200,
+!define - SHELLVALS - Items.ShellsX, Items.ShellsX.1, Items.ShellsX.10, Items.ShellsX.20, Items.ShellsX.30, Items.ShellsX.50, Items.ShellsX.80, Items.ShellsX.100, Items.ShellsX.200,
 !define - RUPEEVALS - Items.Rupee1, Items.Rupee5, Items.Rupee20,
 !define - DHC_FIG -
 !define - DHC_AD -
@@ -521,6 +521,7 @@
 !replace - Items.ShellsX.1 - `SWAPSHELL`
 !replace - Items.ShellsX.10 - `SWAPSHELL`
 !replace - Items.ShellsX.20 - `SWAPSHELL`
+!replace - Items.ShellsX.30 - `SWAPSHELL`
 !replace - Items.ShellsX.50 - `SWAPSHELL`
 !replace - Items.ShellsX.80 - `SWAPSHELL` 
 !replace - Items.ShellsX.100 - `SWAPSHELL`
