@@ -71,6 +71,8 @@
 !flag - Setting - RUPEEMANIA - Available rupees
 !flag - Setting - GOLDEN_ENEMY - Golden enemy drops
 !dropdown - Setting - CUCCO_SETTING - Cucco Game: 1 Round - CUCCO_1 - Cucco Game: Nothing - CUCCO_0 - Cucco Game: 2 Rounds - CUCCO_2 - Cucco Game: 10 Rounds - CUCCO_10
+!dropdown - Setting - GORON_SETTING - Goron Merch.: Nothing - GORON_0 - Goron Merch.: 1 Set - GORON_1 - Goron Merch.: 2 Sets - GORON_2 - Goron Merch.: 3 Sets - GORON_3 - Goron Merch.: 4 Sets - GORON_4 - Goron Merch.: 5 Sets - GORON_5
+!flag - Setting - GORON_ALT_PRICES - Goron Merchant JP/US prices
 !flag - Setting - RANDOM_BOTTLE_CONTENT - Random bottle content
 !flag - Setting - HOMEWARP - Enable Homewarp
 !flag - Setting - ITEMS_COLLECT_ITEMS - Boomerang, Gust Jar and Sword can collect items (not in logic)
@@ -170,6 +172,7 @@
 !define - `KEYS_SETTING`
 !define - `DHC_SETTING`
 !define - `CUCCO_SETTING`
+!define - `GORON_SETTING`
 
 !ifdef - NO_FUSION_SKIP
     !eventdefine - NOFUSE
@@ -225,6 +228,47 @@
 !ifdef - CUCCO_0
     !eventdefine - cuccoSkippedLevels - 9
     !eventdefine - cuccoHeartPieceFlag - 1
+!endif
+
+!ifdef - NO_FUSIONS
+    !eventdefine - goronMerchantCustomSets - 0
+!else
+    !ifdef - GORON_0
+        !eventdefine - goronMerchantCustomSets - 0
+    !endif
+    !ifdef - GORON_1
+        !eventdefine - goronMerchantCustomSets - 1
+        !define - GORON_SET_1
+    !endif
+    !ifdef - GORON_2
+        !eventdefine - goronMerchantCustomSets - 2
+        !define - GORON_SET_1
+        !define - GORON_SET_2
+    !endif
+    !ifdef - GORON_3
+        !eventdefine - goronMerchantCustomSets - 3
+        !define - GORON_SET_1
+        !define - GORON_SET_2
+        !define - GORON_SET_3
+    !endif
+    !ifdef - GORON_4
+        !eventdefine - goronMerchantCustomSets - 4
+        !define - GORON_SET_1
+        !define - GORON_SET_2
+        !define - GORON_SET_3
+        !define - GORON_SET_4
+    !endif
+    !ifdef - GORON_5
+        !eventdefine - goronMerchantCustomSets - 5
+        !define - GORON_SET_1
+        !define - GORON_SET_2
+        !define - GORON_SET_3
+        !define - GORON_SET_4
+        !define - GORON_SET_5
+    !endif
+!endif
+!ifdef - GORON_ALT_PRICES
+    !eventdefine - goronJPPrices
 !endif
 
 !ifdef - SHUFFLE_ELEMENTS
@@ -849,7 +893,7 @@ BakeryAttic;                   Minor; 0x2E-0x03-0x00;                           
 StockWellAttic;                Minor; 0x2E-0x01-0x01;                                                               (|Items.PacciCane, Items.Flippers, Items.RocsCape)
 SimulationChest;               Major; 0x0F04C2;                                                                     Helpers.HasSword
 RemShoeShop;                   Major; 0x0130EE;                                                                     Items.WakeUpMushroom
-Shop80Item;                    Major; walletShopItem:Define:FirstByte, walletShopSub:Define:SecondByte;                              Items.Rupee200; Items.Wallet
+Shop80Item;                    Major; walletShopItem:Define:FirstByte, walletShopSub:Define:SecondByte;             Items.Rupee200; Items.Wallet
 Shop300Item;                   Major; boomerangShopItem:Define:FirstByte, boomerangShopSub:Define:SecondByte;       Items.Wallet,    (+2, Items.Rupee200); Items.Boomerang
 Shop600Item;                   Major; quiverShopItem:Define:FirstByte, quiverShopSub:Define:SecondByte;             Items.Wallet::3, (+5, Items.Rupee200); Items.LargeQuiver
 ShopDogfoodItem;               Major; dogShopItem:Define:FirstByte, dogShopSub:Define:SecondByte;                   (|Items.Flippers, Items.PacciCane, Items.RocsCape);                                                                                     Items.DogFoodBottle
@@ -918,6 +962,69 @@ TingleTrophyItem;              Major; 0x016966;                                 
     CuccoMinigameLevel10;      Major; 0x12460C;                                                                     Helpers.Inaccessible
 !endif
 
+!ifdef - NO_FUSIONS
+    GoronMerchant;   Helper;; Helpers.Inaccessible
+!endif
+!ifdef - OPENFUSIONS
+    GoronMerchant;   Helper;;
+!endif
+!ifdef - VANILLA_FUSIONS
+    GoronMerchant;   Helper;; Helpers.CanFuseBlueS, (|Helpers.CanDestroyTrees, Items.Ocarina), (|Items.Flippers, Items.RocsCape, (&Items.PacciCane, (|Items.Ocarina, Items.LonLonKey)))
+!endif
+!ifndef - GORON_ALT_PRICES
+    !ifdef - GORON_SET_1
+        GoronMerchant1Left;        Minor; goron1LeftItem:Define:FirstByte,   goron1LeftSub:Define:SecondByte;           Helpers.GoronMerchant, Items.Wallet,    (+4,  Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x6E
+        GoronMerchant1Middle;      Minor; goron1MiddleItem:Define:FirstByte, goron1MiddleSub:Define:SecondByte;         Helpers.GoronMerchant,                  (+2,  Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x71
+        GoronMerchant1Right;       Minor; goron1RightItem:Define:FirstByte,  goron1RightSub:Define:SecondByte;          Helpers.GoronMerchant,                  (+1,  Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x75
+    !endif
+    !ifdef - GORON_SET_2
+        GoronMerchant2Left;        Minor; goron2LeftItem:Define:FirstByte,   goron2LeftSub:Define:SecondByte;           Helpers.GoronMerchant, Items.Wallet,    (+10, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x6F
+        GoronMerchant2Middle;      Minor; goron2MiddleItem:Define:FirstByte, goron2MiddleSub:Define:SecondByte;         Helpers.GoronMerchant, Items.Wallet,    (+7,  Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x72
+        GoronMerchant2Right;       Minor; goron2RightItem:Define:FirstByte,  goron2RightSub:Define:SecondByte;          Helpers.GoronMerchant, Items.Wallet,    (+5,  Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x73
+    !endif
+    !ifdef - GORON_SET_3
+        GoronMerchant3Left;        Minor; goron3LeftItem:Define:FirstByte,   goron3LeftSub:Define:SecondByte;           Helpers.GoronMerchant, Items.Wallet::2, (+19, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x70
+        GoronMerchant3Middle;      Minor; goron3MiddleItem:Define:FirstByte, goron3MiddleSub:Define:SecondByte;         Helpers.GoronMerchant, Items.Wallet,    (+15, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x71
+        GoronMerchant3Right;       Minor; goron3RightItem:Define:FirstByte,  goron3RightSub:Define:SecondByte;          Helpers.GoronMerchant, Items.Wallet,    (+12, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x74
+    !endif
+    !ifdef - GORON_SET_4
+        GoronMerchant4Left;        Minor; goron4LeftItem:Define:FirstByte,   goron4LeftSub:Define:SecondByte;           Helpers.GoronMerchant, Items.Wallet::2, (+31, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x6E
+        GoronMerchant4Middle;      Minor; goron4MiddleItem:Define:FirstByte, goron4MiddleSub:Define:SecondByte;         Helpers.GoronMerchant, Items.Wallet::2, (+26, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x72
+        GoronMerchant4Right;       Minor; goron4RightItem:Define:FirstByte,  goron4RightSub:Define:SecondByte;          Helpers.GoronMerchant, Items.Wallet::2, (+22, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x75
+    !endif
+    !ifdef - GORON_SET_5
+        GoronMerchant5Left;        Minor; goron5LeftItem:Define:FirstByte,   goron5LeftSub:Define:SecondByte;           Helpers.GoronMerchant, Items.Wallet::3, (+46, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x6F
+        GoronMerchant5Middle;      Minor; goron5MiddleItem:Define:FirstByte, goron5MiddleSub:Define:SecondByte;         Helpers.GoronMerchant, Items.Wallet::2, (+40, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x71
+        GoronMerchant5Right;       Minor; goron5RightItem:Define:FirstByte,  goron5RightSub:Define:SecondByte;          Helpers.GoronMerchant, Items.Wallet::2, (+35, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x73
+    !endif
+!else
+    !ifdef - GORON_SET_1
+        GoronMerchant1Left;        Minor; goron1LeftItem:Define:FirstByte,   goron1LeftSub:Define:SecondByte;           Helpers.GoronMerchant, Items.Wallet,    (+6,  Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x6E
+        GoronMerchant1Middle;      Minor; goron1MiddleItem:Define:FirstByte, goron1MiddleSub:Define:SecondByte;         Helpers.GoronMerchant, Items.Wallet,    (+3,  Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x71
+        GoronMerchant1Right;       Minor; goron1RightItem:Define:FirstByte,  goron1RightSub:Define:SecondByte;          Helpers.GoronMerchant,                  (+1,  Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x75
+    !endif
+    !ifdef - GORON_SET_2
+        GoronMerchant2Left;        Minor; goron2LeftItem:Define:FirstByte,   goron2LeftSub:Define:SecondByte;           Helpers.GoronMerchant, Items.Wallet,    (+12, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x6F
+        GoronMerchant2Middle;      Minor; goron2MiddleItem:Define:FirstByte, goron2MiddleSub:Define:SecondByte;         Helpers.GoronMerchant, Items.Wallet,    (+9,  Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x72
+        GoronMerchant2Right;       Minor; goron2RightItem:Define:FirstByte,  goron2RightSub:Define:SecondByte;          Helpers.GoronMerchant, Items.Wallet,    (+7,  Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x73
+    !endif
+    !ifdef - GORON_SET_3
+        GoronMerchant3Left;        Minor; goron3LeftItem:Define:FirstByte,   goron3LeftSub:Define:SecondByte;           Helpers.GoronMerchant, Items.Wallet,    (+18, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x70
+        GoronMerchant3Middle;      Minor; goron3MiddleItem:Define:FirstByte, goron3MiddleSub:Define:SecondByte;         Helpers.GoronMerchant, Items.Wallet,    (+15, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x71
+        GoronMerchant3Right;       Minor; goron3RightItem:Define:FirstByte,  goron3RightSub:Define:SecondByte;          Helpers.GoronMerchant, Items.Wallet,    (+13, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x74
+    !endif
+    !ifdef - GORON_SET_4
+        GoronMerchant4Left;        Minor; goron4LeftItem:Define:FirstByte,   goron4LeftSub:Define:SecondByte;           Helpers.GoronMerchant, Items.Wallet,    (+24, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x6E
+        GoronMerchant4Middle;      Minor; goron4MiddleItem:Define:FirstByte, goron4MiddleSub:Define:SecondByte;         Helpers.GoronMerchant, Items.Wallet,    (+21, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x72
+        GoronMerchant4Right;       Minor; goron4RightItem:Define:FirstByte,  goron4RightSub:Define:SecondByte;          Helpers.GoronMerchant, Items.Wallet,    (+19, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x75
+    !endif
+    !ifdef - GORON_SET_5
+        GoronMerchant5Left;        Minor; goron5LeftItem:Define:FirstByte,   goron5LeftSub:Define:SecondByte;           Helpers.GoronMerchant, Items.Wallet,    (+30, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x6F
+        GoronMerchant5Middle;      Minor; goron5MiddleItem:Define:FirstByte, goron5MiddleSub:Define:SecondByte;         Helpers.GoronMerchant, Items.Wallet,    (+27, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x71
+        GoronMerchant5Right;       Minor; goron5RightItem:Define:FirstByte,  goron5RightSub:Define:SecondByte;          Helpers.GoronMerchant, Items.Wallet,    (+25, Items.Rupee100, Items.Rupee200::2); Items.KinstoneX.0x73
+    !endif
+!endif
+
 AccessEastField;  Helper;;                                        (|Helpers.CanDestroyTrees, Items.Ocarina)
 HillsKeeseCave;   Minor; 0x32-0x13-0x00;                          Items.BombBag
 AboveHPHole;      Minor; 0x27-0x00-0x00;                          Locations.AccessHyliaNorth, (|Items.PacciCane, Items.RocsCape)
@@ -931,7 +1038,7 @@ AccessWestField;     Helper;;                                                   
 TrilbyBombCave;      Minor; 0x32-0x07-0x00;                                                       Locations.AccessWestField, Helpers.CanSplit2, Items.BombBag
 TrilbyMoleCaveLeft;  Minor; 0x13-0x03-0x00;                                                       Locations.AccessWestField, Items.MoleMitts
 TrilbyMoleCaveRight; Minor; 0x13-0x03-0x02;                                                       Locations.AccessWestField, Items.MoleMitts
-BottleScrub;         Major; bottleScrubItem:Define:FirstByte, bottleScrubSub:Define:SecondByte; Items.Shield, Items.BombBag, Locations.AccessWestField;        Items.Bottle4 #consistency
+BottleScrub;         Major; bottleScrubItem:Define:FirstByte, bottleScrubSub:Define:SecondByte;   Items.Shield, Items.BombBag, Locations.AccessWestField;        Items.Bottle4 #consistency
 
 # Minish Woods Locations
 AccessMinishWoods;               Helper;;               Locations.AccessEastField
