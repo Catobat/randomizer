@@ -39,7 +39,8 @@ ldr	r3,shopData
 lsl	r0,r2,#3
 add	r3,r0
 lsl	r0,r5,#1
-ldrb	r1,[r3,r0]
+add	r3,r0
+ldrb	r1,[r3]
 ldrb	r2,[r3,#1]
 
 end:
