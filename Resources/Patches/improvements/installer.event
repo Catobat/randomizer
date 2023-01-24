@@ -120,6 +120,15 @@ BYTE 0xFF 0xFF 0xFF 0xFF; SHORT 0 0 0x000 0x000 0 0
 
 //start with cursor on first save file instead of language
 PUSH; ORG $50180; SHORT 0x2100; POP
+//new files default to fast text speed
+PUSH; ORG $100435; BYTE 0x02
+ORG $515AA
+SHORT 0x2002 //mov r0,#2
+ORG $515AE
+SHORT 0x2201 //mov r2,#1
+SHORT 0x70E2 //strb r2,[r4,#3]
+SHORT 0x1C21 0x31AA 0x2018 0x7008 0x34AB 0x7020 0xBD10
+POP
 //vaati eyes take only one hit to kill
 PUSH; ORG $4445C; SHORT 0x28FB; POP
 //make the vaati2 3 cycle the same as other regions, I hope
