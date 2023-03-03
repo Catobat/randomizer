@@ -5,7 +5,7 @@ namespace RandomizerCore.Utilities.Logging;
 
 internal class Logger
 {
-    private static Logger? _instance;
+    [ThreadStatic] private static Logger? _instance;
     // ReSharper disable once InconsistentNaming
     private Log? _transaction;
 

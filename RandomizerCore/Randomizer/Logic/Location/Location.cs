@@ -64,7 +64,7 @@ public class Location
         HideFromSpoilerLog = hideFromSpoilerLog;
     }
 
-    public static List<Func<Location, Item, List<Location>, bool>> ShufflerConstraints { get; } = new();
+    [ThreadStatic] public static List<Func<Location, Item, List<Location>, bool>>? ShufflerConstraints = new();
 
     public Item? Contents { get; private set; }
     public int RecursionCount { get; private set; }

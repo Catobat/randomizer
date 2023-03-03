@@ -15,7 +15,7 @@ public abstract class DependencyBase
         Result = false;
     }
 
-    public static DependencyBase? BeatVaatiDependency { get; set; } = null;
+    [ThreadStatic] public static DependencyBase? BeatVaatiDependency = null;
 
     internal bool Result { get; set; }
 

@@ -414,6 +414,8 @@ public class DirectiveParser
         if (!LogicImports.FunctionValues.TryGetValue(functionName, out var function))
             throw new ParserException("Import directive requires a function that does not exist!");
 
+        Location.ShufflerConstraints ??= new List<Func<Location, Item, List<Location>, bool>>();
+        
         Location.ShufflerConstraints.Add(function);
     }
 

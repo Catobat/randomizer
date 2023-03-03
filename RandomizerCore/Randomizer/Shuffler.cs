@@ -1813,7 +1813,10 @@ internal class Shuffler
     public void ClearLogic()
     {
         DependencyBase.BeatVaatiDependency = null;
-        Location.ShufflerConstraints.Clear();
+        
+        if (Location.ShufflerConstraints != null)
+            Location.ShufflerConstraints.Clear();
+        
         Locations.Clear();
 
         Music.Clear();

@@ -7,9 +7,4 @@ public class ShufflerControllerResult
     public Exception? Error { get; set; }
 
     public string? ErrorMessage { get; set; }
-
-    public static implicit operator bool(ShufflerControllerResult result)
-    {
-        return result.WasSuccessful;
-    }
 }
